@@ -85,13 +85,13 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 /* Brands: slow continuous scroll of the ranges we're official retailers of, sitting above the hero title */
 .brands { display: grid; gap: 14px; min-width: 0; }
 .brands-label { font: 500 11px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--on-dark-muted); }
-.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); }
-.marquee-track { display: flex; width: max-content; animation: marquee 60s linear infinite; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; user-select: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); }
+.marquee::-webkit-scrollbar { display: none; }
+.marquee.dragging { cursor: grabbing; }
+.marquee-track { display: flex; width: max-content; }
 .marquee ul { display: flex; align-items: center; height: 60px; list-style: none; margin: 0; padding: 0; }
 .marquee li { padding-inline: 0 clamp(40px, 5vw, 64px); opacity: .95; }
-.marquee li img { width: auto; max-width: none; display: block; }
-@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee li img { width: auto; max-width: none; display: block; pointer-events: none; -webkit-user-drag: none; }
 
 /* Statement */
 .statement { padding-block: clamp(110px, 14vw, 190px); text-align: center; }
@@ -231,7 +231,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
-  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee { -webkit-mask-image: none; mask-image: none; cursor: default; }
   .marquee-track { width: auto; }
   .marquee ul { flex-wrap: wrap; row-gap: 20px; height: auto; }
   .marquee ul[aria-hidden] { display: none; }
@@ -274,7 +274,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
                 <li><img src="logo/brands/brintons.png" alt="Brintons" style="height:30px"></li>
                 <li><img src="logo/brands/j2-flooring.png" alt="J2 Flooring" style="height:26px"></li>
                 <li><img src="logo/brands/altro.png" alt="Altro" style="height:58px"></li>
-                <li><img src="logo/brands/polyflor.png" alt="Polyflor" style="height:35px"></li>
+                <li><img src="logo/brands/polyflor.png" alt="Polyflor" style="height:31px"></li>
                 <li><img src="logo/brands/abingdon.png" alt="Abingdon Flooring" style="height:36px"></li>
                 <li><img src="logo/brands/associated-weavers.png" alt="Associated Weavers" style="height:38px"></li>
                 <li><img src="logo/brands/isense.png" alt="iSense" style="height:58px"></li>
@@ -287,7 +287,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
                 <li><img src="logo/brands/brintons.png" alt="" style="height:30px"></li>
                 <li><img src="logo/brands/j2-flooring.png" alt="" style="height:26px"></li>
                 <li><img src="logo/brands/altro.png" alt="" style="height:58px"></li>
-                <li><img src="logo/brands/polyflor.png" alt="" style="height:35px"></li>
+                <li><img src="logo/brands/polyflor.png" alt="" style="height:31px"></li>
                 <li><img src="logo/brands/abingdon.png" alt="" style="height:36px"></li>
                 <li><img src="logo/brands/associated-weavers.png" alt="" style="height:38px"></li>
                 <li><img src="logo/brands/isense.png" alt="" style="height:58px"></li>
@@ -592,6 +592,48 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 </footer>
 
 <script>
+
+// Retailers carousel: drifts slowly, and can be swiped (touch), dragged (mouse) or scrolled (trackpad).
+// The list is duplicated, so the scroll position wraps by half its width for an endless loop.
+(() => {
+  const box = document.querySelector('.marquee');
+  if (!box || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const SPEED = 30;                 // pixels per second while drifting
+  const EDGE = 120;                 // keep a little room on the left so it can be swiped backwards too
+  let pos = EDGE, last = 0, held = false, resumeAt = 0, drag = null;
+  const half = () => box.scrollWidth / 2;
+  const wrap = p => { const h = half(); return h ? (((p - EDGE) % h) + h) % h + EDGE : p; };
+  function pauseFor(ms) { resumeAt = performance.now() + ms; }
+  function tick(t) {
+    const dt = last ? (t - last) / 1000 : 0; last = t;
+    if (!held && !drag && t > resumeAt) { pos = wrap(pos + SPEED * dt); box.scrollLeft = pos; }
+    requestAnimationFrame(tick);
+  }
+  box.addEventListener('scroll', () => {
+    // user swiped or scrolled: follow them, keep the loop endless, and wait before drifting again
+    if (Math.abs(box.scrollLeft - pos) > 1) {
+      const w = wrap(box.scrollLeft);
+      if (w !== box.scrollLeft) box.scrollLeft = w;
+      pos = w; pauseFor(2500);
+    }
+  }, { passive: true });
+  box.addEventListener('mouseenter', () => held = true);
+  box.addEventListener('mouseleave', () => { held = false; pauseFor(600); });
+  box.addEventListener('touchstart', () => pauseFor(4000), { passive: true });
+  box.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse') return;          // touch uses native swiping
+    drag = { x: e.clientX, start: box.scrollLeft }; box.classList.add('dragging');
+  });
+  window.addEventListener('pointermove', e => {
+    if (!drag) return;
+    pos = wrap(drag.start - (e.clientX - drag.x)); box.scrollLeft = pos;
+  });
+  window.addEventListener('pointerup', () => {
+    if (!drag) return;
+    drag = null; box.classList.remove('dragging'); pauseFor(2500);
+  });
+  requestAnimationFrame(tick);
+})();
 
 // Reviews carousel: arrows, dots, auto-advance every 7s (paused on hover/focus, off for reduced motion)
 (() => {
