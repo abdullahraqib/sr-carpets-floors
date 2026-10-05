@@ -88,9 +88,9 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); }
 .marquee-track { display: flex; width: max-content; animation: marquee 60s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
-.marquee ul { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
-.marquee li { padding-inline: 0 clamp(32px, 4vw, 52px); font: 400 clamp(19px, 1.8vw, 23px)/1 var(--serif); color: var(--on-dark); opacity: .85; white-space: nowrap; }
-.marquee li small { font: 500 10px/1 var(--label); letter-spacing: .24em; text-transform: uppercase; color: var(--on-dark-muted); margin-left: 8px; }
+.marquee ul { display: flex; align-items: center; height: 60px; list-style: none; margin: 0; padding: 0; }
+.marquee li { padding-inline: 0 clamp(40px, 5vw, 64px); opacity: .82; }
+.marquee li img { width: auto; max-width: none; display: block; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* Statement */
@@ -233,7 +233,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   html { scroll-behavior: auto; }
   .marquee { -webkit-mask-image: none; mask-image: none; }
   .marquee-track { width: auto; }
-  .marquee ul { flex-wrap: wrap; row-gap: 12px; }
+  .marquee ul { flex-wrap: wrap; row-gap: 20px; height: auto; }
   .marquee ul[aria-hidden] { display: none; }
 }
 </style>
@@ -266,34 +266,34 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
       <div class="hero-copy">
         <div class="brands" role="region" aria-label="Official retailers of">
           <p class="brands-label">Official retailers of</p>
-          <!-- Text wordmarks: swap each <li> for the brand's official logo file when you have them -->
+          <!-- Brand logos converted to white on transparent (logo/brands/). Heights balance visual weight between wide and square marks. -->
           <div class="marquee">
             <div class="marquee-track">
               <ul>
-                <li>Karndean</li>
-                <li>Brintons</li>
-                <li>J2 Flooring</li>
-                <li>Altro</li>
-                <li>Polyflor</li>
-                <li>Abingdon</li>
-                <li>Associated Weavers</li>
-                <li>iSense<small>by AW</small></li>
-                <li>Invictus<small>by AW</small></li>
-                <li>Quick-Step</li>
-                <li>Ibexx</li>
+                <li><img src="logo/brands/karndean.png" alt="Karndean" style="height:37px"></li>
+                <li><img src="logo/brands/brintons.png" alt="Brintons" style="height:30px"></li>
+                <li><img src="logo/brands/j2-flooring.png" alt="J2 Flooring" style="height:26px"></li>
+                <li><img src="logo/brands/altro.png" alt="Altro" style="height:58px"></li>
+                <li><img src="logo/brands/polyflor.png" alt="Polyflor" style="height:35px"></li>
+                <li><img src="logo/brands/abingdon.png" alt="Abingdon Flooring" style="height:36px"></li>
+                <li><img src="logo/brands/associated-weavers.png" alt="Associated Weavers" style="height:38px"></li>
+                <li><img src="logo/brands/isense.png" alt="iSense" style="height:58px"></li>
+                <li><img src="logo/brands/invictus.png" alt="Invictus" style="height:58px"></li>
+                <li><img src="logo/brands/quick-step.png" alt="Quick-Step" style="height:40px"></li>
+                <li><img src="logo/brands/ibexx.png" alt="Ibexx Flooring Group" style="height:39px"></li>
               </ul>
               <ul aria-hidden="true">
-                <li>Karndean</li>
-                <li>Brintons</li>
-                <li>J2 Flooring</li>
-                <li>Altro</li>
-                <li>Polyflor</li>
-                <li>Abingdon</li>
-                <li>Associated Weavers</li>
-                <li>iSense<small>by AW</small></li>
-                <li>Invictus<small>by AW</small></li>
-                <li>Quick-Step</li>
-                <li>Ibexx</li>
+                <li><img src="logo/brands/karndean.png" alt="" style="height:37px"></li>
+                <li><img src="logo/brands/brintons.png" alt="" style="height:30px"></li>
+                <li><img src="logo/brands/j2-flooring.png" alt="" style="height:26px"></li>
+                <li><img src="logo/brands/altro.png" alt="" style="height:58px"></li>
+                <li><img src="logo/brands/polyflor.png" alt="" style="height:35px"></li>
+                <li><img src="logo/brands/abingdon.png" alt="" style="height:36px"></li>
+                <li><img src="logo/brands/associated-weavers.png" alt="" style="height:38px"></li>
+                <li><img src="logo/brands/isense.png" alt="" style="height:58px"></li>
+                <li><img src="logo/brands/invictus.png" alt="" style="height:58px"></li>
+                <li><img src="logo/brands/quick-step.png" alt="" style="height:40px"></li>
+                <li><img src="logo/brands/ibexx.png" alt="" style="height:39px"></li>
               </ul>
             </div>
           </div>
