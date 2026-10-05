@@ -272,34 +272,49 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
         <span class="label">In our customers' words</span>
         <p>4.9 out of 5 · 648 Google reviews</p>
       </div>
-      <!-- Excerpts from 5-star Google reviews, quoted as written -->
+      <!-- Excerpts from 5-star Google reviews, quoted as written. Only slides with data-rating="5" are shown, in random order. -->
       <div class="carousel">
         <button class="arrow" type="button" data-dir="-1" aria-label="Previous review">←</button>
         <div class="slides">
-          <figure class="slide on">
+          <figure class="slide on" data-rating="5">
             <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
             <blockquote>“Just had my stairs carpeted in herringbone design 100% pure wool in chalk colour with 11mm underlay. Great price and excellent service.”</blockquote>
             <figcaption class="cite">Mohammed K. · Google review</figcaption>
           </figure>
-          <figure class="slide">
+          <figure class="slide" data-rating="5">
             <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
             <blockquote>“She took the time to understand what I was looking for and gave me honest advice, which made the whole process really easy.”</blockquote>
             <figcaption class="cite">Monadi A. · Google review</figcaption>
           </figure>
-          <figure class="slide">
+          <figure class="slide" data-rating="5">
             <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
             <blockquote>“Their advice made all the difference, and the end result looks amazing. Professional, friendly, and genuinely knowledgeable.”</blockquote>
             <figcaption class="cite">Mohammad U. · Google review</figcaption>
           </figure>
-          <figure class="slide">
+          <figure class="slide" data-rating="5">
             <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
             <blockquote>“We had a home visit with samples to see… The staff will go above and beyond to help you.”</blockquote>
             <figcaption class="cite">Colin T. · Google review</figcaption>
           </figure>
-          <figure class="slide">
+          <figure class="slide" data-rating="5">
             <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
             <blockquote>“This is the 3rd time we are using this company… picked out some lovely carpets for us.”</blockquote>
             <figcaption class="cite">Runa M. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“From the get go they helped me choose the carpet with ease and understood my vision.”</blockquote>
+            <figcaption class="cite">Binyaameen M. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“Had my flooring done today and couldn’t be happier. Great service and a fantastic result. Will definitely use them again!”</blockquote>
+            <figcaption class="cite">Bota A. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“The best local shop for carpet and laminate.”</blockquote>
+            <figcaption class="cite">Viviannne D. · Google review</figcaption>
           </figure>
         </div>
         <button class="arrow" type="button" data-dir="1" aria-label="Next review">→</button>
@@ -532,7 +547,15 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 // Reviews carousel: arrows, dots, auto-advance every 7s (paused on hover/focus, off for reduced motion)
 (() => {
   const root = document.getElementById('reviews');
-  const slides = [...root.querySelectorAll('.slide')];
+  const track = root.querySelector('.slides');
+  const all = [...track.querySelectorAll('.slide')];
+  all.filter(s => s.dataset.rating !== '5').forEach(s => s.remove()); // only ever show 5-star reviews
+  const slides = all.filter(s => s.dataset.rating === '5');
+  for (let k = slides.length - 1; k > 0; k--) { // shuffle on every visit
+    const j = Math.floor(Math.random() * (k + 1));
+    [slides[k], slides[j]] = [slides[j], slides[k]];
+  }
+  slides.forEach(s => track.append(s));
   const dots = root.querySelector('.dots');
   let i = 0, timer;
   slides.forEach((_, n) => {
