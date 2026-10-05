@@ -76,21 +76,21 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .hero-lede { max-width: 34em; color: var(--on-dark-muted); font-size: 18px; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
 /* Slim ratings banner along the very top */
-.topbar { justify-self: start; max-width: 100%; background: var(--garnet-deep); color: var(--on-dark); padding: 11px 18px; font: 500 11px/1.4 var(--label); letter-spacing: .22em; text-transform: uppercase; }
+.topbar { background: var(--garnet-deep); color: var(--on-dark); text-align: center; padding: 11px 16px; font: 500 11px/1.4 var(--label); letter-spacing: .22em; text-transform: uppercase; }
 .topbar a { text-decoration: none; }
 .topbar a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .topbar-stars { color: var(--star); font-size: 15px; letter-spacing: .12em; margin-right: 10px; vertical-align: -1px; }
 .topbar-sep { opacity: .45; margin: 0 14px; }
 
-/* Brands: slow continuous scroll of the ranges we're official retailers of */
-.brands { padding-block: 34px; border-bottom: 1px solid var(--hair); display: grid; gap: 20px; }
-.brands-label { text-align: center; font: 500 11px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--garnet); }
-.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+/* Brands: slow continuous scroll of the ranges we're official retailers of, sitting above the hero title */
+.brands { display: grid; gap: 14px; min-width: 0; }
+.brands-label { font: 500 11px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--on-dark-muted); }
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); }
 .marquee-track { display: flex; width: max-content; animation: marquee 60s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee ul { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
-.marquee li { padding-inline: clamp(28px, 4vw, 56px); font: 400 clamp(22px, 2.2vw, 28px)/1 var(--serif); color: var(--text); opacity: .72; white-space: nowrap; }
-.marquee li small { font: 500 10px/1 var(--label); letter-spacing: .24em; text-transform: uppercase; color: var(--muted); margin-left: 8px; }
+.marquee li { padding-inline: 0 clamp(32px, 4vw, 52px); font: 400 clamp(19px, 1.8vw, 23px)/1 var(--serif); color: var(--on-dark); opacity: .85; white-space: nowrap; }
+.marquee li small { font: 500 10px/1 var(--label); letter-spacing: .24em; text-transform: uppercase; color: var(--on-dark-muted); margin-left: 8px; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* Statement */
@@ -233,7 +233,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   html { scroll-behavior: auto; }
   .marquee { -webkit-mask-image: none; mask-image: none; }
   .marquee-track { width: auto; }
-  .marquee ul { flex-wrap: wrap; justify-content: center; row-gap: 16px; }
+  .marquee ul { flex-wrap: wrap; row-gap: 12px; }
   .marquee ul[aria-hidden] { display: none; }
 }
 </style>
@@ -241,6 +241,9 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 <body>
 
 <header>
+  <div class="topbar">
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener"><span class="topbar-stars" aria-hidden="true">★★★★★</span>4.9 from 648 Google reviews</a><span class="topbar-fb"><span class="topbar-sep" aria-hidden="true">·</span><a href="https://www.facebook.com/sandr.carpets/" target="_blank" rel="noopener">96% recommend us on Facebook</a></span>
+  </div>
   <div class="wrap nav">
     <a class="logo" href="#top"><img src="logo/sr-logo-white.png" alt="SR Carpets & Floors" width="988" height="265"></a>
     <nav aria-label="Main">
@@ -261,8 +264,39 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop" alt="A calm living room with a deep-pile rug over a pale wooden floor">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <div class="topbar">
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener"><span class="topbar-stars" aria-hidden="true">★★★★★</span>4.9 from 648 Google reviews</a><span class="topbar-fb"><span class="topbar-sep" aria-hidden="true">·</span><a href="https://www.facebook.com/sandr.carpets/" target="_blank" rel="noopener">96% recommend us on Facebook</a></span>
+        <div class="brands" role="region" aria-label="Official retailers of">
+          <p class="brands-label">Official retailers of</p>
+          <!-- Text wordmarks: swap each <li> for the brand's official logo file when you have them -->
+          <div class="marquee">
+            <div class="marquee-track">
+              <ul>
+                <li>Karndean</li>
+                <li>Brintons</li>
+                <li>J2 Flooring</li>
+                <li>Altro</li>
+                <li>Polyflor</li>
+                <li>Abingdon</li>
+                <li>Associated Weavers</li>
+                <li>iSense<small>by AW</small></li>
+                <li>Invictus<small>by AW</small></li>
+                <li>Quick-Step</li>
+                <li>Ibexx</li>
+              </ul>
+              <ul aria-hidden="true">
+                <li>Karndean</li>
+                <li>Brintons</li>
+                <li>J2 Flooring</li>
+                <li>Altro</li>
+                <li>Polyflor</li>
+                <li>Abingdon</li>
+                <li>Associated Weavers</li>
+                <li>iSense<small>by AW</small></li>
+                <li>Invictus<small>by AW</small></li>
+                <li>Quick-Step</li>
+                <li>Ibexx</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <h1>Trusted in West Yorkshire homes <em>for half a century</em></h1>
         <p class="hero-lede">For 50 years, families across Bradford, Leeds, Halifax and Huddersfield have chosen us for their floors. Book a private consultation and we'll bring our sample library to your home and measure every room.</p>
@@ -270,41 +304,6 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           <a class="btn btn-garnet" href="#book">Book a home consultation</a>
           <a class="btn btn-ghost" href="#collections">View the collections</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="brands" aria-label="Official retailers of">
-    <p class="brands-label">Official retailers of</p>
-    <!-- Text wordmarks: swap each <li> for the brand's official logo file when you have them -->
-    <div class="marquee">
-      <div class="marquee-track">
-        <ul>
-          <li>Karndean</li>
-          <li>Brintons</li>
-          <li>J2 Flooring</li>
-          <li>Altro</li>
-          <li>Polyflor</li>
-          <li>Abingdon</li>
-          <li>Associated Weavers</li>
-          <li>iSense<small>by AW</small></li>
-          <li>Invictus<small>by AW</small></li>
-          <li>Quick-Step</li>
-          <li>Ibexx</li>
-        </ul>
-        <ul aria-hidden="true">
-          <li>Karndean</li>
-          <li>Brintons</li>
-          <li>J2 Flooring</li>
-          <li>Altro</li>
-          <li>Polyflor</li>
-          <li>Abingdon</li>
-          <li>Associated Weavers</li>
-          <li>iSense<small>by AW</small></li>
-          <li>Invictus<small>by AW</small></li>
-          <li>Quick-Step</li>
-          <li>Ibexx</li>
-        </ul>
       </div>
     </div>
   </section>
