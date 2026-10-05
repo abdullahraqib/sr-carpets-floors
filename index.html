@@ -91,18 +91,23 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .statement p { font: 300 clamp(30px, 3.6vw, 50px)/1.25 var(--serif); max-width: 22em; text-wrap: balance; }
 .statement p em { color: var(--garnet); }
 
-/* Reviews */
-.reviews { background: var(--stone); }
-.reviews-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(48px, 7vw, 110px); align-items: start; }
-.feature { display: grid; gap: 28px; }
-.feature blockquote { margin: 0; font: 300 clamp(28px, 3vw, 42px)/1.25 var(--serif); text-wrap: pretty; }
-.stars { font-size: 13px; letter-spacing: .3em; color: var(--garnet); }
+/* Reviews: compact carousel, one quote at a time */
+.reviews { background: var(--stone); padding-block: clamp(64px, 8vw, 104px); }
+.reviews-head { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; margin-bottom: 36px; }
+.reviews-head p { font: 500 12px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
+.carousel { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(12px, 3vw, 40px); max-width: 920px; margin: 0 auto; }
+.slides { display: grid; min-width: 0; }
+.slide { grid-area: 1 / 1; margin: 0; display: grid; justify-items: center; align-content: center; gap: 18px; text-align: center; opacity: 0; visibility: hidden; transition: opacity .7s var(--ease), visibility .7s; }
+.slide.on { opacity: 1; visibility: visible; }
+.slide blockquote { margin: 0; font: 300 clamp(22px, 2.4vw, 30px)/1.35 var(--serif); max-width: 30em; text-wrap: balance; }
+.stars { font-size: 12px; letter-spacing: .3em; color: var(--garnet); }
 .cite { font: 500 11px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
-.quotes { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--hair); }
-.quote { padding: 28px 28px 32px 0; display: grid; gap: 14px; align-content: start; border-bottom: 1px solid var(--hair); min-width: 0; }
-.quote:nth-child(even) { padding-left: 28px; padding-right: 0; border-left: 1px solid var(--hair); }
-.quote blockquote { margin: 0; font: italic 300 21px/1.4 var(--serif); }
-.reviews-more { margin-top: 36px; color: var(--garnet); }
+.arrow { width: 48px; height: 48px; border: 1px solid var(--hair); background: transparent; color: var(--text); font: 300 20px/1 var(--body); cursor: pointer; display: grid; place-items: center; transition: border-color .3s, background .3s, color .3s; }
+.arrow:hover { border-color: var(--text); background: var(--text); color: var(--ivory); }
+.dots { display: flex; justify-content: center; gap: 10px; margin-top: 32px; }
+.dots button { width: 22px; height: 2px; padding: 0; border: 0; background: var(--hair); cursor: pointer; transition: background .3s, width .3s; }
+.dots button[aria-current="true"] { background: var(--garnet); width: 36px; }
+.reviews-more { display: table; margin: 28px auto 0; color: var(--garnet); }
 
 /* Section heads */
 section { padding-block: clamp(90px, 12vw, 160px); }
@@ -196,7 +201,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .nav ul { display: none; }
   .hero { min-height: 680px; }
   .hero-inner { padding-block: 170px 48px; }
-  .sec-head, .craft-grid, .book-grid, .reviews-grid { grid-template-columns: 1fr; }
+  .sec-head, .craft-grid, .book-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .piece:nth-child(1) { grid-column: 1 / -1; }
   .piece:nth-child(2) { grid-column: auto; margin-top: 0; }
@@ -211,8 +216,9 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 @media (max-width: 600px) {
   .logo img { height: 30px; }
   .nav .btn { padding: 1em 1.2em; letter-spacing: .22em; }
-  .gallery, .steps, form, .facts, .foot-grid, .quotes { grid-template-columns: 1fr; }
-  .quote, .quote:nth-child(even) { padding: 24px 0 28px; border-left: 0; }
+  .gallery, .steps, form, .facts, .foot-grid { grid-template-columns: 1fr; }
+  .arrow { width: 38px; height: 38px; font-size: 16px; }
+  .carousel { gap: 10px; }
   .step, .step + .step { padding: 32px 0 0; border-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -270,48 +276,46 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     </div>
   </section>
 
-  <section class="reviews" id="reviews">
+  <section class="reviews" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews">
     <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">In our customers' words</span>
-          <h2>Rated <em>4.9 out of 5</em> by 648 Google reviewers</h2>
-        </div>
-        <p>A few of the five-star reviews left on our Google listing by customers across Bradford and West Yorkshire.</p>
+      <div class="reviews-head">
+        <span class="label">In our customers' words</span>
+        <p>4.9 out of 5 · 648 Google reviews</p>
       </div>
       <!-- Excerpts from 5-star Google reviews, quoted as written -->
-      <div class="reviews-grid">
-        <figure class="feature" style="margin:0">
-          <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-          <blockquote>“Just had my stairs carpeted in herringbone design 100% pure wool in chalk colour with 11mm underlay. Great price and excellent service.”</blockquote>
-          <figcaption class="cite">Mohammed K. · Google review</figcaption>
-        </figure>
-        <div>
-          <div class="quotes">
-            <figure class="quote" style="margin:0">
-              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-              <blockquote>“She took the time to understand what I was looking for and gave me honest advice.”</blockquote>
-              <figcaption class="cite">Monadi A.</figcaption>
-            </figure>
-            <figure class="quote" style="margin:0">
-              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-              <blockquote>“Their advice made all the difference, and the end result looks amazing.”</blockquote>
-              <figcaption class="cite">Mohammad U.</figcaption>
-            </figure>
-            <figure class="quote" style="margin:0">
-              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-              <blockquote>“We had a home visit with samples to see… The staff will go above and beyond to help you.”</blockquote>
-              <figcaption class="cite">Colin T.</figcaption>
-            </figure>
-            <figure class="quote" style="margin:0">
-              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-              <blockquote>“This is the 3rd time we are using this company… picked out some lovely carpets for us.”</blockquote>
-              <figcaption class="cite">Runa M.</figcaption>
-            </figure>
-          </div>
-          <a class="link reviews-more" href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener">Read all reviews on Google →</a>
+      <div class="carousel">
+        <button class="arrow" type="button" data-dir="-1" aria-label="Previous review">←</button>
+        <div class="slides">
+          <figure class="slide on">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“Just had my stairs carpeted in herringbone design 100% pure wool in chalk colour with 11mm underlay. Great price and excellent service.”</blockquote>
+            <figcaption class="cite">Mohammed K. · Google review</figcaption>
+          </figure>
+          <figure class="slide">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“She took the time to understand what I was looking for and gave me honest advice, which made the whole process really easy.”</blockquote>
+            <figcaption class="cite">Monadi A. · Google review</figcaption>
+          </figure>
+          <figure class="slide">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“Their advice made all the difference, and the end result looks amazing. Professional, friendly, and genuinely knowledgeable.”</blockquote>
+            <figcaption class="cite">Mohammad U. · Google review</figcaption>
+          </figure>
+          <figure class="slide">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“We had a home visit with samples to see… The staff will go above and beyond to help you.”</blockquote>
+            <figcaption class="cite">Colin T. · Google review</figcaption>
+          </figure>
+          <figure class="slide">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“This is the 3rd time we are using this company… picked out some lovely carpets for us.”</blockquote>
+            <figcaption class="cite">Runa M. · Google review</figcaption>
+          </figure>
         </div>
+        <button class="arrow" type="button" data-dir="1" aria-label="Next review">→</button>
       </div>
+      <div class="dots" role="group" aria-label="Choose a review"></div>
+      <a class="link reviews-more" href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener">Read all reviews on Google →</a>
     </div>
   </section>
 
@@ -534,6 +538,34 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 </footer>
 
 <script>
+
+// Reviews carousel: arrows, dots, auto-advance every 7s (paused on hover/focus, off for reduced motion)
+(() => {
+  const root = document.getElementById('reviews');
+  const slides = [...root.querySelectorAll('.slide')];
+  const dots = root.querySelector('.dots');
+  let i = 0, timer;
+  slides.forEach((_, n) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.setAttribute('aria-label', 'Review ' + (n + 1));
+    b.onclick = () => { show(n); restart(); };
+    dots.append(b);
+  });
+  function show(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, k) => { s.classList.toggle('on', k === i); s.setAttribute('aria-hidden', k !== i); });
+    [...dots.children].forEach((d, k) => d.setAttribute('aria-current', k === i));
+  }
+  const auto = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function restart() { clearInterval(timer); if (auto) timer = setInterval(() => show(i + 1), 7000); }
+  root.querySelectorAll('.arrow').forEach(a => a.onclick = () => { show(i + +a.dataset.dir); restart(); });
+  root.addEventListener('mouseenter', () => clearInterval(timer));
+  root.addEventListener('mouseleave', restart);
+  root.addEventListener('focusin', () => clearInterval(timer));
+  root.addEventListener('focusout', restart);
+  show(0); restart();
+})();
+
 // ponytail: no backend yet. Wire this to your form service (Formspree, Netlify Forms, etc.) when the site goes live.
 const form = document.getElementById('book-form');
 form.addEventListener('submit', e => {
