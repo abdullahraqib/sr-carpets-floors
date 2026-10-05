@@ -251,7 +251,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 
 <header>
   <div class="topbar">
-    <a href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener"><span class="topbar-stars" aria-hidden="true">★★★★★</span><span data-google="rating">4.9</span> from <span data-google="count">648</span> Google reviews</a><span class="topbar-fb"><span class="topbar-sep" aria-hidden="true">·</span><a href="https://www.facebook.com/sandr.carpets/" target="_blank" rel="noopener">96% recommend us on Facebook</a></span>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener"><span class="topbar-stars" aria-hidden="true">★★★★★</span>4.9 from 600+ Google reviews</a><span class="topbar-fb"><span class="topbar-sep" aria-hidden="true">·</span><a href="https://www.facebook.com/sandr.carpets/" target="_blank" rel="noopener">96% recommend us on Facebook</a></span>
   </div>
   <div class="nav-bar">
   <div class="wrap nav">
@@ -465,7 +465,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     <div class="wrap">
       <div class="reviews-head">
         <span class="label">In our customers' words</span>
-        <p><span data-google="rating">4.9</span> out of 5 · <span data-google="count">648</span> Google reviews</p>
+        <p>4.9 out of 5 · 600+ Google reviews</p>
       </div>
       <!-- Excerpts from 5-star Google reviews, quoted as written. Only slides with data-rating="5" are shown, in random order. -->
       <div class="carousel">
@@ -616,43 +616,6 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 </footer>
 
 <script>
-
-// Live Google rating + review count (Places API). The numbers in the HTML are the fallback,
-// shown until Google answers, or always if no key is set or the request fails.
-// Setup: create a Maps JavaScript API key with "Places API (New)" enabled, restrict it to this
-// website's address (HTTP referrer), and paste it below. Optionally paste the shop's Place ID.
-const GOOGLE_MAPS_KEY = '';
-const GOOGLE_PLACE_ID = '';   // leave blank to look the shop up by name and address
-const GOOGLE_PLACE_QUERY = 'SR Carpets & Floors, Forster Square Retail Park, 60 Valley Rd, Bradford BD1 4AA';
-(() => {
-  if (!GOOGLE_MAPS_KEY) return;
-  const show = ({ rating, count }) => {
-    if (typeof rating === 'number') document.querySelectorAll('[data-google="rating"]').forEach(el => el.textContent = rating.toFixed(1));
-    if (typeof count === 'number') document.querySelectorAll('[data-google="count"]').forEach(el => el.textContent = count.toLocaleString('en-GB'));
-  };
-  const CACHE = 'sr-google-rating', DAY = 864e5;   // ponytail: one lookup per visitor per day keeps API usage tiny
-  try { const c = JSON.parse(localStorage.getItem(CACHE)); if (c && Date.now() - c.at < DAY) return show(c); } catch {}
-  window.__srPlaces = async () => {
-    try {
-      const { Place } = await google.maps.importLibrary('places');
-      let place;
-      if (GOOGLE_PLACE_ID) {
-        place = new Place({ id: GOOGLE_PLACE_ID });
-        await place.fetchFields({ fields: ['rating', 'userRatingCount'] });
-      } else {
-        ({ places: [place] } = await Place.searchByText({ textQuery: GOOGLE_PLACE_QUERY, fields: ['rating', 'userRatingCount'], maxResultCount: 1 }));
-      }
-      if (!place) return;
-      const data = { rating: place.rating, count: place.userRatingCount, at: Date.now() };
-      show(data);
-      try { localStorage.setItem(CACHE, JSON.stringify(data)); } catch {}
-    } catch (e) { /* keep the fallback numbers */ }
-  };
-  const s = document.createElement('script');
-  s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(GOOGLE_MAPS_KEY) + '&loading=async&callback=__srPlaces';
-  s.async = true;
-  document.head.append(s);
-})();
 
 // Retailers carousel: drifts slowly, and can be swiped (touch), dragged (mouse) or scrolled (trackpad).
 // The list is repeated three times, so the scroll position wraps by one copy's width for an endless loop.
