@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SR Carpets & Floors</title>
-<meta name="description" content="SR Carpets & Floors, Bradford. Premium carpet, real wood, LVT, laminate and lino for half a century. Showroom at Forster Square Retail Park, with home consultations across West Yorkshire.">
+<meta name="description" content="SR Carpets & Floors, Bradford. Premium carpet, real wood, LVT, laminate and lino. West Yorkshire's highest-rated flooring shop, serving Bradford and Leeds for half a century. Showroom at Forster Square Retail Park, with home consultations across West Yorkshire.">
 <link rel="icon" type="image/png" href="logo/sr-mark-garnet.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,8 +74,15 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .hero h1 { font-size: clamp(50px, 7vw, 104px); }
 .hero-lede { max-width: 34em; color: var(--on-dark-muted); font-size: 18px; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
-.hero-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 40px; padding-top: 28px; border-top: 1px solid var(--hair-dark); font: 500 12px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark-muted); }
-.hero-foot ul { display: flex; flex-wrap: wrap; gap: 14px 40px; list-style: none; margin: 0; padding: 0; }
+/* Proof row: quiet, typographic, same rhythm as the rest of the page */
+.proof { display: grid; gap: 22px; }
+.proof-head { font: italic 300 22px/1.3 var(--serif); color: var(--on-dark); }
+.proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--hair-dark); }
+.proof-item { padding: 26px 28px 0; border-left: 1px solid var(--hair-dark); display: grid; gap: 12px; align-content: start; min-width: 0; }
+.proof-item:first-child { padding-left: 0; border-left: 0; }
+.proof-item b { font: 300 46px/1 var(--serif); font-variant-numeric: lining-nums; }
+.proof-item b small { font-size: .5em; color: var(--on-dark-muted); margin-left: 2px; }
+.proof-item span { font: 500 11px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; color: var(--on-dark-muted); }
 
 /* Statement */
 .statement { padding-block: clamp(110px, 14vw, 190px); text-align: center; }
@@ -126,7 +133,7 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .craft .label { color: var(--on-dark-muted); }
 .craft-copy h2 { font-size: clamp(42px, 4.8vw, 68px); }
 .craft-copy > p { color: var(--on-dark-muted); max-width: 32em; }
-.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 48px; padding-top: 16px; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 48px; padding-top: 16px; }
 .fact { border-top: 1px solid var(--hair-dark); padding-top: 22px; display: grid; gap: 8px; }
 .fact b { font: 300 52px/1 var(--serif); font-variant-numeric: lining-nums tabular-nums; }
 .fact span { font-size: 15px; color: var(--on-dark-muted); }
@@ -184,11 +191,13 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .steps { grid-template-columns: 1fr 1fr; row-gap: 40px; }
   .step:nth-child(3) { padding-left: 0; border-left: 0; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
+  .proof-grid { grid-template-columns: 1fr 1fr; row-gap: 8px; }
+  .proof-item:nth-child(3) { padding-left: 0; border-left: 0; }
+  .proof-item b { font-size: 38px; }
 }
 @media (max-width: 600px) {
   .logo img { height: 30px; }
   .nav .btn { padding: 1em 1.2em; letter-spacing: .22em; }
-  .hero-foot ul { display: none; }
   .gallery, .steps, form, .facts, .foot-grid { grid-template-columns: 1fr; }
   .step, .step + .step { padding: 32px 0 0; border-left: 0; }
 }
@@ -221,21 +230,22 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop" alt="A calm living room with a deep-pile rug over a pale wooden floor">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <span class="label">Bradford · Half a century</span>
-        <h1>Floors for homes made <em>with care</em></h1>
-        <p class="hero-lede">A private consultation in your home, a sample library chosen around your rooms, and fitting by our own craftsmen. One team, from the first swatch to the final threshold.</p>
+        <span class="label">Bradford · Leeds · West Yorkshire</span>
+        <h1>Trusted in West Yorkshire homes <em>for half a century</em></h1>
+        <p class="hero-lede">For 50 years, families across Bradford and Leeds have chosen us for their floors. Book a private consultation and we'll bring our sample library to your home, measure every room, and fit it ourselves.</p>
         <div class="hero-ctas">
           <a class="btn btn-garnet" href="#book">Book a home consultation</a>
           <a class="btn btn-ghost" href="#collections">View the collections</a>
         </div>
       </div>
-      <div class="hero-foot">
-        <ul>
-          <li>Complimentary consultation</li>
-          <li>Samples brought to you</li>
-          <li>Fitted by our own team</li>
-        </ul>
-        <span>★ 4.9 from 322 Google reviews</span>
+      <div class="proof">
+        <p class="proof-head">The highest-rated flooring shop in West Yorkshire on Google and Facebook.</p>
+        <div class="proof-grid">
+          <div class="proof-item"><b>4.9<small>/5</small></b><span>Google rating<br>322 reviews</span></div>
+          <div class="proof-item"><b>96%</b><span>Recommend us<br>1,300+ Facebook reviews</span></div>
+          <div class="proof-item"><b>40,000+</b><span>Facebook<br>followers</span></div>
+          <div class="proof-item"><b>50</b><span>Years serving<br>West Yorkshire</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -309,7 +319,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           <span class="label">Our service</span>
           <h2>From first swatch to <em>final threshold</em></h2>
         </div>
-        <p>An independent Bradford business for 50 years. We visit homes across West Yorkshire with samples, measure up, and fit the floor ourselves.</p>
+        <p>Serving Bradford, Leeds and West Yorkshire for 50 years. We visit your home with samples, measure up, and fit the floor ourselves.</p>
       </div>
       <div class="steps">
         <div class="step">
@@ -346,10 +356,9 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
         <h2>The difference is <em>in the edges</em></h2>
         <p>A beautiful floor badly fitted is still a bad floor. Our fitters pattern-match carpet across doorways, scribe timber to uneven walls, and finish stairs with tight returns and invisible joins.</p>
         <div class="facts">
-          <div class="fact"><b>50 years</b><span>flooring Bradford homes</span></div>
-          <div class="fact"><b>4.9 ★</b><span>average from 322 Google reviews</span></div>
-          <div class="fact"><b>£0</b><span>for a home visit with samples and a measure</span></div>
-          <div class="fact"><b>NICF</b><span>fitting to National Institute of Carpet &amp; Floorlayers guidelines</span></div>
+          <div class="fact"><b>2024</b><span>Best Carpet Installation in Bradford, Quality Business Awards</span></div>
+          <div class="fact"><b>£0</b><span>home visit with samples and a measure</span></div>
+          <div class="fact"><b>NICF</b><span>fitting to Carpet &amp; Floorlayers institute guidelines</span></div>
         </div>
       </div>
     </div>
@@ -428,7 +437,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     <div class="foot-grid">
       <div>
         <a class="logo" href="#top"><img src="logo/sr-logo-white.png" alt="SR Carpets & Floors" width="988" height="265"></a>
-        <p style="margin-top:26px;max-width:24em">Carpet, real wood and fine hard flooring in Bradford for half a century, with home consultations across West Yorkshire.</p>
+        <p style="margin-top:26px;max-width:24em">Carpet, real wood and fine hard flooring, serving Bradford, Leeds and West Yorkshire for half a century.</p>
       </div>
       <div>
         <h4>Showroom</h4>
