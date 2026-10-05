@@ -216,8 +216,10 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .btn-long { display: none; }
   .btn-short { display: inline; }
 }
-@media (max-width: 1300px) {
-  .nav ul { display: none; }
+@media (max-width: 1300px) {   /* laptops: keep the menu links, just tighter */
+  .nav ul { gap: 20px; font-size: 15px; letter-spacing: .15em; }
+  .nav .btn { font-size: 15px; letter-spacing: .1em; padding: 1.1em 1.2em; }
+  .logo img { height: 48px; }
 }
 @media (max-width: 1000px) {
   .nav ul { display: none; }
