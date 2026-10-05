@@ -56,7 +56,7 @@ p { margin: 0; }
 .link { font: 500 17px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; display: inline-flex; gap: 12px; align-items: center; padding-bottom: 8px; border-bottom: 1px solid currentColor; }
 
 /* Header */
-header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark); }
+header { position: relative; z-index: 5; background: #0b0909; color: var(--on-dark); }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 28px;   /* same overall bar height as before: bigger logo, less padding */ border-bottom: 1px solid var(--hair-dark); }
 .logo img { height: 56px; width: auto; }
 .nav ul { display: flex; gap: 44px; list-style: none; margin: 0; padding: 0; font: 500 17px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; }
@@ -65,11 +65,11 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .nav .btn { padding: 1.1em 1.8em; }
 
 /* Hero */
-.hero { position: relative; min-height: 780px; display: flex; align-items: flex-end; background: var(--ink); color: var(--on-dark); overflow: hidden; }
+.hero { position: relative; min-height: 680px; display: flex; align-items: flex-end; background: var(--ink); color: var(--on-dark); overflow: hidden; }
 .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: settle 2.4s var(--ease) both; }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,16,16,.88) 0%, rgba(18,16,16,.55) 45%, rgba(18,16,16,.1) 100%), linear-gradient(0deg, rgba(18,16,16,.7) 0%, rgba(18,16,16,0) 40%); }
 @keyframes settle { from { transform: scale(1.06); } to { transform: scale(1); } }
-.hero-inner { position: relative; z-index: 2; width: 100%; padding-block: 190px 72px; display: grid; gap: 48px; }
+.hero-inner { position: relative; z-index: 2; width: 100%; padding-block: 80px 72px; display: grid; gap: 48px; }
 .hero-copy { max-width: 760px; display: grid; gap: 32px; }
 .hero .label { color: var(--on-dark); }
 .hero h1 { font-size: clamp(50px, 7vw, 104px); }
@@ -214,8 +214,8 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 }
 @media (max-width: 1000px) {
   .nav ul { display: none; }
-  .hero { min-height: 680px; }
-  .hero-inner { padding-block: 170px 48px; }
+  .hero { min-height: 600px; }
+  .hero-inner { padding-block: 56px 48px; }
   .sec-head, .craft-grid, .book-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .piece:nth-child(1) { grid-column: 1 / -1; }
