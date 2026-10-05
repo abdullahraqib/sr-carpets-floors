@@ -45,21 +45,21 @@ h1 em, h2 em { font-style: italic; }
 p { margin: 0; }
 .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
 
-.label { display: inline-flex; align-items: center; gap: 14px; font: 500 12px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--garnet); }
+.label { display: inline-flex; align-items: center; gap: 14px; font: 500 15px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--garnet); }
 .label::before { content: ""; width: 1px; height: 18px; background: currentColor; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 1.25em 2.2em; font: 500 12px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 1.25em 2.2em; font: 500 15px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease); }
 .btn-garnet { background: var(--garnet); color: var(--on-dark); }
 .btn-garnet:hover { background: var(--garnet-deep); }
 .btn-ghost { border-color: var(--hair-dark); color: var(--on-dark); }
 .btn-ghost:hover { border-color: var(--on-dark); }
-.link { font: 500 12px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; display: inline-flex; gap: 12px; align-items: center; padding-bottom: 8px; border-bottom: 1px solid currentColor; }
+.link { font: 500 15px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; display: inline-flex; gap: 12px; align-items: center; padding-bottom: 8px; border-bottom: 1px solid currentColor; }
 
 /* Header */
 header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark); }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 32px; border-bottom: 1px solid var(--hair-dark); }
 .logo img { height: 38px; width: auto; }
-.nav ul { display: flex; gap: 44px; list-style: none; margin: 0; padding: 0; font: 500 12px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; }
+.nav ul { display: flex; gap: 44px; list-style: none; margin: 0; padding: 0; font: 500 15px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; }
 .nav ul a { text-decoration: none; opacity: .75; transition: opacity .3s; }
 .nav ul a:hover { opacity: 1; }
 .nav .btn { padding: 1.1em 1.8em; }
@@ -76,7 +76,7 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .hero-lede { max-width: 34em; color: var(--on-dark-muted); font-size: 18px; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
 /* Slim ratings banner along the very top */
-.topbar { background: var(--garnet-deep); color: var(--on-dark); text-align: center; padding: 11px 16px; font: 500 11px/1.4 var(--label); letter-spacing: .22em; text-transform: uppercase; }
+.topbar { background: var(--garnet-deep); color: var(--on-dark); text-align: center; padding: 11px 16px; font: 500 14px/1.4 var(--label); letter-spacing: .22em; text-transform: uppercase; }
 .topbar a { text-decoration: none; }
 .topbar a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .topbar-stars { color: var(--star); font-size: 15px; letter-spacing: .12em; margin-right: 10px; vertical-align: -1px; }
@@ -84,7 +84,7 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 
 /* Brands: slow continuous scroll of the ranges we're official retailers of, sitting above the hero title */
 .brands { display: grid; gap: 14px; min-width: 0; }
-.brands-label { font: 500 11px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--on-dark-muted); }
+.brands-label { font: 500 14px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--on-dark-muted); }
 .marquee { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; user-select: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); }
 .marquee::-webkit-scrollbar { display: none; }
 .marquee.dragging { cursor: grabbing; }
@@ -103,14 +103,14 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 /* Reviews: compact carousel, one quote at a time */
 .reviews { background: var(--stone); padding-block: clamp(64px, 8vw, 104px); }
 .reviews-head { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; margin-bottom: 36px; }
-.reviews-head p { font: 500 12px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
+.reviews-head p { font: 500 15px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
 .carousel { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(12px, 3vw, 40px); max-width: 920px; margin: 0 auto; }
 .slides { display: grid; min-width: 0; }
 .slide { grid-area: 1 / 1; margin: 0; display: grid; justify-items: center; align-content: center; gap: 18px; text-align: center; opacity: 0; visibility: hidden; transition: opacity .7s var(--ease), visibility .7s; }
 .slide.on { opacity: 1; visibility: visible; }
 .slide blockquote { margin: 0; font: 300 clamp(22px, 2.4vw, 30px)/1.35 var(--serif); max-width: 30em; text-wrap: balance; }
 .stars { font-size: 22px; letter-spacing: .14em; color: var(--star); line-height: 1; }
-.cite { font: 500 11px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
+.cite { font: 500 14px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
 .arrow { width: 48px; height: 48px; border: 1px solid var(--hair); background: transparent; color: var(--text); font: 300 20px/1 var(--body); cursor: pointer; display: grid; place-items: center; transition: border-color .3s, background .3s, color .3s; }
 .arrow:hover { border-color: var(--text); background: var(--text); color: var(--ivory); }
 .dots { display: flex; justify-content: center; gap: 10px; margin-top: 32px; }
@@ -136,7 +136,7 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.6s var(--ease); }
 .piece:hover .frame img { transform: scale(1.04); }
 .caption { display: grid; gap: 10px; }
-.spec { font: 500 11px/1.4 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+.spec { font: 500 14px/1.4 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
 .caption h3 { font-size: clamp(34px, 3vw, 44px); display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .caption h3 span { font: 300 22px/1 var(--body); color: var(--garnet); transition: transform .5s var(--ease); }
 .piece:hover .caption h3 span { transform: translateX(6px); }
@@ -176,7 +176,7 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 form { background: var(--ivory); color: var(--text); padding: clamp(28px, 4.5vw, 60px); display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px; }
 .field { display: grid; gap: 6px; min-width: 0; }
 .field.full { grid-column: 1 / -1; }
-label, legend { font: 500 11px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+label, legend { font: 500 14px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
 input, select, textarea { font: 300 17px/1.4 var(--body); color: var(--text); background: transparent; border: 0; border-bottom: 1px solid var(--hair); padding: 12px 0; border-radius: 0; width: 100%; transition: border-color .3s; }
 input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: var(--garnet); }
 textarea { resize: vertical; min-height: 84px; }
@@ -197,15 +197,18 @@ form .btn { grid-column: 1 / -1; padding-block: 1.5em; margin-top: 8px; }
 footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96px 40px; font-size: 15px; }
 .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; }
 .foot-grid .logo img { height: 44px; }
-.foot-grid h4 { font: 500 11px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark); margin: 0 0 22px; }
+.foot-grid h4 { font: 500 14px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark); margin: 0 0 22px; }
 .foot-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .foot-grid a { text-decoration: none; transition: color .3s; overflow-wrap: anywhere; }
 .foot-grid a:hover { color: var(--on-dark); }
-.foot-base { margin-top: 72px; padding-top: 28px; border-top: 1px solid var(--hair-dark); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font: 500 11px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; }
+.foot-base { margin-top: 72px; padding-top: 28px; border-top: 1px solid var(--hair-dark); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font: 500 14px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; }
 .hours { font-variant-numeric: tabular-nums; }
 .hours li { display: flex; justify-content: space-between; gap: 16px; }
 
 /* Responsive */
+@media (max-width: 1180px) {
+  .nav ul { gap: 26px; letter-spacing: .22em; }
+}
 @media (max-width: 1000px) {
   .nav ul { display: none; }
   .hero { min-height: 680px; }
@@ -226,6 +229,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .arrow { width: 38px; height: 38px; font-size: 16px; }
   .carousel { gap: 10px; }
   .topbar-fb { display: none; }
+  .topbar { letter-spacing: .12em; }
   .step, .step + .step { padding: 32px 0 0; border-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
