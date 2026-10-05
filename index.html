@@ -60,10 +60,11 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 header .nav-bar { background: rgba(0,0,0,.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }   /* black tint over the hero photo */
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 28px;   /* same overall bar height as before: bigger logo, less padding */ border-bottom: 1px solid var(--hair-dark); }
 .logo img { height: 56px; width: auto; }
-.nav ul { display: flex; gap: 44px; list-style: none; margin: 0; padding: 0; font: 500 17px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; }
+.nav ul { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; font: 500 17px/1 var(--label); letter-spacing: .22em; text-transform: uppercase; }
 .nav ul a { text-decoration: none; opacity: .75; transition: opacity .3s; }
 .nav ul a:hover { opacity: 1; }
-.nav .btn { padding: 1.1em 1.8em; }
+.nav .btn { padding: 1.1em 1.6em; letter-spacing: .2em; }
+.btn-short { display: none; }   /* phones show the short label */
 
 /* Hero */
 .hero { position: relative; min-height: 780px; display: flex; align-items: flex-end; background: var(--ink); color: var(--on-dark); overflow: hidden; }
@@ -211,10 +212,11 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 .hours li { display: flex; justify-content: space-between; gap: 16px; }
 
 /* Responsive */
-@media (max-width: 1320px) {
-  .nav ul { gap: 26px; letter-spacing: .2em; }
+@media (max-width: 700px) {
+  .btn-long { display: none; }
+  .btn-short { display: inline; }
 }
-@media (max-width: 1180px) {
+@media (max-width: 1300px) {
   .nav ul { display: none; }
 }
 @media (max-width: 1000px) {
@@ -232,7 +234,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 }
 @media (max-width: 600px) {
   .logo img { height: 34px; }
-  .nav .btn { padding: .9em 1em; letter-spacing: .12em; }
+  .nav .btn { padding: .9em 1em; letter-spacing: .14em; }
   .gallery, .steps, form, .facts, .foot-grid { grid-template-columns: 1fr; }
   .arrow { width: 38px; height: 38px; font-size: 16px; }
   .carousel { gap: 10px; }
@@ -269,7 +271,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
         <li><a href="#visit">Visit us</a></li>
       </ul>
     </nav>
-    <a class="btn btn-garnet" href="#book">Book a measure</a>
+    <a class="btn btn-garnet" href="#book"><span class="btn-long">Schedule a free measure</span><span class="btn-short">Free measure</span></a>
   </div>
   </div>
 </header>
