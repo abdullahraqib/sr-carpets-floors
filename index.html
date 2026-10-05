@@ -91,6 +91,19 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .statement p { font: 300 clamp(30px, 3.6vw, 50px)/1.25 var(--serif); max-width: 22em; text-wrap: balance; }
 .statement p em { color: var(--garnet); }
 
+/* Reviews */
+.reviews { background: var(--stone); }
+.reviews-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(48px, 7vw, 110px); align-items: start; }
+.feature { display: grid; gap: 28px; }
+.feature blockquote { margin: 0; font: 300 clamp(28px, 3vw, 42px)/1.25 var(--serif); text-wrap: pretty; }
+.stars { font-size: 13px; letter-spacing: .3em; color: var(--garnet); }
+.cite { font: 500 11px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
+.quotes { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--hair); }
+.quote { padding: 28px 28px 32px 0; display: grid; gap: 14px; align-content: start; border-bottom: 1px solid var(--hair); min-width: 0; }
+.quote:nth-child(even) { padding-left: 28px; padding-right: 0; border-left: 1px solid var(--hair); }
+.quote blockquote { margin: 0; font: italic 300 21px/1.4 var(--serif); }
+.reviews-more { margin-top: 36px; color: var(--garnet); }
+
 /* Section heads */
 section { padding-block: clamp(90px, 12vw, 160px); }
 .sec-head { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px 80px; align-items: end; margin-bottom: clamp(56px, 7vw, 96px); }
@@ -183,7 +196,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .nav ul { display: none; }
   .hero { min-height: 680px; }
   .hero-inner { padding-block: 170px 48px; }
-  .sec-head, .craft-grid, .book-grid { grid-template-columns: 1fr; }
+  .sec-head, .craft-grid, .book-grid, .reviews-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .piece:nth-child(1) { grid-column: 1 / -1; }
   .piece:nth-child(2) { grid-column: auto; margin-top: 0; }
@@ -198,7 +211,8 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 @media (max-width: 600px) {
   .logo img { height: 30px; }
   .nav .btn { padding: 1em 1.2em; letter-spacing: .22em; }
-  .gallery, .steps, form, .facts, .foot-grid { grid-template-columns: 1fr; }
+  .gallery, .steps, form, .facts, .foot-grid, .quotes { grid-template-columns: 1fr; }
+  .quote, .quote:nth-child(even) { padding: 24px 0 28px; border-left: 0; }
   .step, .step + .step { padding: 32px 0 0; border-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -230,7 +244,6 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop" alt="A calm living room with a deep-pile rug over a pale wooden floor">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <span class="label">Bradford · Leeds · West Yorkshire</span>
         <h1>Trusted in West Yorkshire homes <em>for half a century</em></h1>
         <p class="hero-lede">For 50 years, families across Bradford, Leeds, Halifax and Huddersfield have chosen us for their floors. Book a private consultation and we'll bring our sample library to your home and measure every room.</p>
         <div class="hero-ctas">
@@ -254,6 +267,51 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     <div class="wrap">
       <img src="logo/sr-mark-garnet.png" alt="" width="424" height="265">
       <p>The floor is the first thing you feel in a room, and the last thing you'll want to replace. We help you <em>choose it once</em>, and choose it well.</p>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label">In our customers' words</span>
+          <h2>Rated <em>4.9 out of 5</em> by 648 Google reviewers</h2>
+        </div>
+        <p>A few of the five-star reviews left on our Google listing by customers across Bradford and West Yorkshire.</p>
+      </div>
+      <!-- Excerpts from 5-star Google reviews, quoted as written -->
+      <div class="reviews-grid">
+        <figure class="feature" style="margin:0">
+          <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote>“Just had my stairs carpeted in herringbone design 100% pure wool in chalk colour with 11mm underlay. Great price and excellent service.”</blockquote>
+          <figcaption class="cite">Mohammed K. · Google review</figcaption>
+        </figure>
+        <div>
+          <div class="quotes">
+            <figure class="quote" style="margin:0">
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote>“She took the time to understand what I was looking for and gave me honest advice.”</blockquote>
+              <figcaption class="cite">Monadi A.</figcaption>
+            </figure>
+            <figure class="quote" style="margin:0">
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote>“Their advice made all the difference, and the end result looks amazing.”</blockquote>
+              <figcaption class="cite">Mohammad U.</figcaption>
+            </figure>
+            <figure class="quote" style="margin:0">
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote>“We had a home visit with samples to see… The staff will go above and beyond to help you.”</blockquote>
+              <figcaption class="cite">Colin T.</figcaption>
+            </figure>
+            <figure class="quote" style="margin:0">
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote>“This is the 3rd time we are using this company… picked out some lovely carpets for us.”</blockquote>
+              <figcaption class="cite">Runa M.</figcaption>
+            </figure>
+          </div>
+          <a class="link reviews-more" href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener">Read all reviews on Google →</a>
+        </div>
+      </div>
     </div>
   </section>
 
