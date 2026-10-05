@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SR Carpets & Floors</title>
+<meta name="description" content="Premium carpet, real wood, LVT, laminate and lino, measured and fitted by our own craftsmen. Book a private home consultation.">
+<link rel="icon" type="image/png" href="logo/sr-mark-garnet.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500&family=Barlow:wght@300;400&display=swap">
+<style>
+/* Layout: full-bleed image hero, ivory gallery body with generous margins, a single garnet band for the consultation.
+   Fine serif carries the voice; the logo's condensed face appears only in small tracked labels, with its thin vertical rule. */
+:root {
+  --ink: #121010;
+  --ink-2: #1d1a19;
+  --garnet: #8e1b22;       /* deepened from the logo red #D93732 */
+  --garnet-deep: #5c1016;
+  --ivory: #f5f1ea;
+  --stone: #e9e2d7;
+  --text: #221e1c;
+  --muted: #6f665e;
+  --hair: rgba(34,30,28,.14);
+  --on-dark: #f3eee6;
+  --on-dark-muted: #a8a097;
+  --hair-dark: rgba(243,238,230,.16);
+  --serif: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --label: "Barlow Condensed", "DIN Condensed", "Arial Narrow", sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --gutter: clamp(20px, 6vw, 96px);
+  --max: 1320px;
+  --ease: cubic-bezier(.2,.7,.2,1);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ivory); color: var(--text); font: 300 17px/1.75 var(--body); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 300; line-height: 1.04; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+h1 em, h2 em { font-style: italic; }
+p { margin: 0; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+
+.label { display: inline-flex; align-items: center; gap: 14px; font: 500 12px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--garnet); }
+.label::before { content: ""; width: 1px; height: 18px; background: currentColor; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 1.25em 2.2em; font: 500 12px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease); }
+.btn-garnet { background: var(--garnet); color: var(--on-dark); }
+.btn-garnet:hover { background: var(--garnet-deep); }
+.btn-ghost { border-color: var(--hair-dark); color: var(--on-dark); }
+.btn-ghost:hover { border-color: var(--on-dark); }
+.link { font: 500 12px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; display: inline-flex; gap: 12px; align-items: center; padding-bottom: 8px; border-bottom: 1px solid currentColor; }
+
+/* Header */
+header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 32px; border-bottom: 1px solid var(--hair-dark); }
+.logo img { height: 38px; width: auto; }
+.nav ul { display: flex; gap: 44px; list-style: none; margin: 0; padding: 0; font: 500 12px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; }
+.nav ul a { text-decoration: none; opacity: .75; transition: opacity .3s; }
+.nav ul a:hover { opacity: 1; }
+.nav .btn { padding: 1.1em 1.8em; }
+
+/* Hero */
+.hero { position: relative; min-height: 780px; display: flex; align-items: flex-end; background: var(--ink); color: var(--on-dark); overflow: hidden; }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: settle 2.4s var(--ease) both; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,16,16,.88) 0%, rgba(18,16,16,.55) 45%, rgba(18,16,16,.1) 100%), linear-gradient(0deg, rgba(18,16,16,.7) 0%, rgba(18,16,16,0) 40%); }
+@keyframes settle { from { transform: scale(1.06); } to { transform: scale(1); } }
+.hero-inner { position: relative; z-index: 2; width: 100%; padding-block: 200px 72px; display: grid; gap: 64px; }
+.hero-copy { max-width: 760px; display: grid; gap: 32px; }
+.hero .label { color: var(--on-dark); }
+.hero h1 { font-size: clamp(50px, 7vw, 104px); }
+.hero-lede { max-width: 34em; color: var(--on-dark-muted); font-size: 18px; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
+.hero-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 40px; padding-top: 28px; border-top: 1px solid var(--hair-dark); font: 500 12px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark-muted); }
+.hero-foot ul { display: flex; flex-wrap: wrap; gap: 14px 40px; list-style: none; margin: 0; padding: 0; }
+
+/* Statement */
+.statement { padding-block: clamp(110px, 14vw, 190px); text-align: center; }
+.statement .wrap { display: grid; justify-items: center; gap: 36px; }
+.statement img { height: 44px; width: auto; }
+.statement p { font: 300 clamp(30px, 3.6vw, 50px)/1.25 var(--serif); max-width: 22em; text-wrap: balance; }
+.statement p em { color: var(--garnet); }
+
+/* Section heads */
+section { padding-block: clamp(90px, 12vw, 160px); }
+.sec-head { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px 80px; align-items: end; margin-bottom: clamp(56px, 7vw, 96px); }
+.sec-head h2 { font-size: clamp(42px, 5vw, 72px); margin-top: 26px; }
+.sec-head p { color: var(--muted); max-width: 32em; }
+
+/* Collections: gallery with captions below the image */
+#collections { padding-top: 0; }
+.gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(48px, 6vw, 88px) clamp(20px, 2.6vw, 40px); }
+.piece { text-decoration: none; display: grid; gap: 24px; align-content: start; min-width: 0; }
+.piece:nth-child(1) { grid-column: 1 / span 7; }
+.piece:nth-child(2) { grid-column: 9 / span 4; margin-top: clamp(60px, 10vw, 160px); }
+.piece:nth-child(n+3) { grid-column: span 4; }
+.frame { overflow: hidden; background: var(--stone); aspect-ratio: 4 / 5; max-width: 100%; }
+.piece:nth-child(1) .frame { aspect-ratio: 5 / 4; }
+.frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.6s var(--ease); }
+.piece:hover .frame img { transform: scale(1.04); }
+.caption { display: grid; gap: 10px; }
+.spec { font: 500 11px/1.4 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+.caption h3 { font-size: clamp(34px, 3vw, 44px); display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.caption h3 span { font: 300 22px/1 var(--body); color: var(--garnet); transition: transform .5s var(--ease); }
+.piece:hover .caption h3 span { transform: translateX(6px); }
+.caption p { color: var(--muted); font-size: 16px; max-width: 30em; }
+
+/* Process */
+.process { background: var(--stone); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--hair); }
+.step { padding: 40px 36px 0 0; display: grid; gap: 16px; align-content: start; }
+.step + .step { padding-left: 36px; border-left: 1px solid var(--hair); }
+.step-n { font: italic 300 52px/1 var(--serif); color: var(--garnet); }
+.step h3 { font-size: 30px; font-weight: 400; }
+.step p { color: var(--muted); font-size: 16px; }
+
+/* Craft */
+.craft { background: var(--ink); color: var(--on-dark); }
+.craft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 8vw, 128px); align-items: center; }
+.craft-img { aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; }
+.craft-img img { width: 100%; height: 100%; object-fit: cover; }
+.craft-copy { display: grid; gap: 30px; }
+.craft .label { color: var(--on-dark-muted); }
+.craft-copy h2 { font-size: clamp(42px, 4.8vw, 68px); }
+.craft-copy > p { color: var(--on-dark-muted); max-width: 32em; }
+.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 48px; padding-top: 16px; }
+.fact { border-top: 1px solid var(--hair-dark); padding-top: 22px; display: grid; gap: 8px; }
+.fact b { font: 300 52px/1 var(--serif); font-variant-numeric: lining-nums tabular-nums; }
+.fact span { font-size: 15px; color: var(--on-dark-muted); }
+
+/* Consultation */
+.book { background: var(--garnet-deep); color: var(--on-dark); }
+.book-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(48px, 8vw, 120px); }
+.book .label { color: var(--on-dark); }
+.book h2 { font-size: clamp(44px, 5vw, 76px); margin: 26px 0 28px; }
+.book-intro p { color: rgba(243,238,230,.78); max-width: 28em; }
+.book-list { list-style: none; padding: 0; margin: 40px 0 0; display: grid; border-top: 1px solid var(--hair-dark); }
+.book-list li { padding-block: 16px; border-bottom: 1px solid var(--hair-dark); font-size: 16px; }
+form { background: var(--ivory); color: var(--text); padding: clamp(28px, 4.5vw, 60px); display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+label, legend { font: 500 11px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+input, select, textarea { font: 300 17px/1.4 var(--body); color: var(--text); background: transparent; border: 0; border-bottom: 1px solid var(--hair); padding: 12px 0; border-radius: 0; width: 100%; transition: border-color .3s; }
+input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: var(--garnet); }
+textarea { resize: vertical; min-height: 84px; }
+fieldset { border: 0; padding: 0; margin: 0; grid-column: 1 / -1; display: grid; gap: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips input { position: absolute; opacity: 0; pointer-events: none; width: auto; }
+.chips label { font: 300 15px/1 var(--body); letter-spacing: .02em; text-transform: none; color: var(--text); border: 1px solid var(--hair); padding: 12px 18px; cursor: pointer; transition: all .3s var(--ease); }
+.chips label:hover { border-color: var(--text); }
+.chips input:checked + label { background: var(--ink); color: var(--on-dark); border-color: var(--ink); }
+.chips input:focus-visible + label { outline: 1px solid var(--garnet); outline-offset: 3px; }
+form .btn { grid-column: 1 / -1; padding-block: 1.5em; margin-top: 8px; }
+.form-note { grid-column: 1 / -1; font-size: 14px; color: var(--muted); text-align: center; }
+.thanks { grid-column: 1 / -1; text-align: center; padding: 48px 0; display: grid; gap: 14px; }
+.thanks h3 { font-size: 46px; }
+.thanks h3 em { color: var(--garnet); }
+
+/* Footer */
+footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96px 40px; font-size: 15px; }
+.foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; }
+.foot-grid .logo img { height: 44px; }
+.foot-grid h4 { font: 500 11px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark); margin: 0 0 22px; }
+.foot-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.foot-grid a { text-decoration: none; transition: color .3s; }
+.foot-grid a:hover { color: var(--on-dark); }
+.foot-base { margin-top: 72px; padding-top: 28px; border-top: 1px solid var(--hair-dark); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font: 500 11px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; }
+.hours { font-variant-numeric: tabular-nums; }
+.hours li { display: flex; justify-content: space-between; gap: 16px; }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .nav ul { display: none; }
+  .hero { min-height: 680px; }
+  .hero-inner { padding-block: 170px 48px; }
+  .sec-head, .craft-grid, .book-grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr 1fr; }
+  .piece:nth-child(1) { grid-column: 1 / -1; }
+  .piece:nth-child(2) { grid-column: auto; margin-top: 0; }
+  .piece:nth-child(n+3) { grid-column: auto; }
+  .steps { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+  .step:nth-child(3) { padding-left: 0; border-left: 0; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .logo img { height: 30px; }
+  .nav .btn { padding: 1em 1.2em; letter-spacing: .22em; }
+  .hero-foot ul { display: none; }
+  .gallery, .steps, form, .facts, .foot-grid { grid-template-columns: 1fr; }
+  .step, .step + .step { padding: 32px 0 0; border-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><img src="logo/sr-logo-white.png" alt="SR Carpets & Floors" width="988" height="265"></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#process">Our service</a></li>
+        <li><a href="#craft">Craftsmanship</a></li>
+        <li><a href="#visit">Showroom</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-garnet" href="#book">Book a visit</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-block:0">
+    <!-- Placeholder: replace with your own fitted-room photography -->
+    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop" alt="A calm living room with a deep-pile rug over a pale wooden floor">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="label">Carpet · Real wood · LVT · Laminate · Lino</span>
+        <h1>Floors for homes made <em>with care</em></h1>
+        <p class="hero-lede">A private consultation in your home, a sample library chosen around your rooms, and fitting by our own craftsmen. One team, from the first swatch to the final threshold.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-garnet" href="#book">Book a home consultation</a>
+          <a class="btn btn-ghost" href="#collections">View the collections</a>
+        </div>
+      </div>
+      <div class="hero-foot">
+        <ul>
+          <li>Complimentary consultation</li>
+          <li>Samples brought to you</li>
+          <li>Fitted by our own team</li>
+        </ul>
+        <span>Shown: wool velvet pile</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="wrap">
+      <img src="logo/sr-mark-garnet.png" alt="" width="424" height="265">
+      <p>The floor is the first thing you feel in a room, and the last thing you'll want to replace. We help you <em>choose it once</em>, and choose it well.</p>
+    </div>
+  </section>
+
+  <section id="collections">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label">The collections</span>
+          <h2>Five materials, <em>each chosen</em> for how it lives</h2>
+        </div>
+        <p>Every range in our showroom has been walked on, cut and fitted by our own team. Tell us how a room is used and we'll bring only what suits it.</p>
+      </div>
+
+      <div class="gallery">
+        <a class="piece" href="#book">
+          <div class="frame"><img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=1600&q=80&auto=format&fit=crop" alt="Soft neutral carpet in a bright bedroom" loading="lazy"></div>
+          <div class="caption">
+            <span class="spec">Pure wool &amp; wool-rich · up to 5m widths</span>
+            <h3>Carpet <span>→</span></h3>
+            <p>Velvets, twists and loop piles for bedrooms, stairs and quiet living spaces, cut from wide rolls so most rooms need no seam.</p>
+          </div>
+        </a>
+        <a class="piece" href="#book">
+          <div class="frame"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&q=80&auto=format&fit=crop" alt="Wide oak planks in an open-plan home" loading="lazy"></div>
+          <div class="caption">
+            <span class="spec">Engineered &amp; solid oak · hand-oiled</span>
+            <h3>Real wood <span>→</span></h3>
+            <p>Wide plank, herringbone and chevron. Sanded and refinished for decades rather than replaced.</p>
+          </div>
+        </a>
+        <a class="piece" href="#book">
+          <div class="frame"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=80&auto=format&fit=crop" alt="Kitchen with a stone-look floor" loading="lazy"></div>
+          <div class="caption">
+            <span class="spec">0.55mm wear layer · underfloor heating</span>
+            <h3>LVT <span>→</span></h3>
+            <p>Stone and timber looks that are warm underfoot and fully waterproof, for kitchens and bathrooms.</p>
+          </div>
+        </a>
+        <a class="piece" href="#book">
+          <div class="frame"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1000&q=80&auto=format&fit=crop" alt="Living room with a timber-effect floor" loading="lazy"></div>
+          <div class="caption">
+            <span class="spec">AC4–AC5 rated · 8–12mm boards</span>
+            <h3>Laminate <span>→</span></h3>
+            <p>Hard-wearing boards with convincing grain, for hallways, family rooms and homes with dogs.</p>
+          </div>
+        </a>
+        <a class="piece" href="#book">
+          <div class="frame"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1000&q=80&auto=format&fit=crop" alt="A bright bathroom with a seamless floor" loading="lazy"></div>
+          <div class="caption">
+            <span class="spec">Seamless to 4m · cushioned</span>
+            <h3>Lino <span>→</span></h3>
+            <p>Laid in a single sheet for utility rooms, cloakrooms and bathrooms. Soft, quiet and easy to keep.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label">Our service</span>
+          <h2>From first swatch to <em>final threshold</em></h2>
+        </div>
+        <p>No call centres and no subcontractors. The person who measures your home is part of the team that fits it.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-n">i.</span>
+          <h3>Home consultation</h3>
+          <p>We arrive with samples chosen around your brief and see them in your own light, against your own walls.</p>
+        </div>
+        <div class="step">
+          <span class="step-n">ii.</span>
+          <h3>Survey &amp; measure</h3>
+          <p>Every room laser-measured and the subfloor checked for moisture and level, so the plan accounts for what lies beneath.</p>
+        </div>
+        <div class="step">
+          <span class="step-n">iii.</span>
+          <h3>Itemised quotation</h3>
+          <p>Flooring, underlay, thresholds, furniture moving and removal of old floors, all itemised. The price we quote is the price you pay.</p>
+        </div>
+        <div class="step">
+          <span class="step-n">iv.</span>
+          <h3>Fitting &amp; aftercare</h3>
+          <p>Doors trimmed, offcuts removed, rooms returned as we found them. We come back if anything needs attention.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="craft" id="craft">
+    <div class="wrap craft-grid">
+      <div class="craft-img">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80&auto=format&fit=crop" alt="Detail of a finished interior with a wooden floor" loading="lazy">
+      </div>
+      <div class="craft-copy">
+        <span class="label">Craftsmanship</span>
+        <h2>The difference is <em>in the edges</em></h2>
+        <p>A beautiful floor badly fitted is still a bad floor. Our fitters pattern-match carpet across doorways, scribe timber to uneven walls, and finish stairs with tight returns and invisible joins.</p>
+        <!-- Placeholder figures: replace with your real ones -->
+        <div class="facts">
+          <div class="fact"><b>£0</b><span>for your consultation, survey and samples</span></div>
+          <div class="fact"><b>48 hrs</b><span>from visit to your itemised quotation</span></div>
+          <div class="fact"><b>100%</b><span>of fitting by our own employed craftsmen</span></div>
+          <div class="fact"><b>5 years</b><span>workmanship guarantee on every fitting</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap book-grid">
+      <div class="book-intro">
+        <span class="label">Private consultation</span>
+        <h2>We'll bring the <em>showroom</em> to you</h2>
+        <p>Tell us a little about your home and we'll arrange a visit at a time that suits you. There's no charge and no obligation.</p>
+        <ul class="book-list">
+          <li>An hour with a flooring specialist in your home</li>
+          <li>Samples selected around your rooms before we arrive</li>
+          <li>Every room surveyed and measured</li>
+          <li>Itemised quotation within 48 hours</li>
+        </ul>
+      </div>
+
+      <form id="book-form" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Telephone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="postcode">Postcode</label>
+          <input id="postcode" name="postcode" autocomplete="postal-code" required>
+        </div>
+        <fieldset>
+          <legend>Interested in</legend>
+          <div class="chips">
+            <input type="checkbox" id="m-carpet" name="material" value="Carpet"><label for="m-carpet">Carpet</label>
+            <input type="checkbox" id="m-wood" name="material" value="Real wood"><label for="m-wood">Real wood</label>
+            <input type="checkbox" id="m-lvt" name="material" value="LVT"><label for="m-lvt">LVT</label>
+            <input type="checkbox" id="m-laminate" name="material" value="Laminate"><label for="m-laminate">Laminate</label>
+            <input type="checkbox" id="m-lino" name="material" value="Lino"><label for="m-lino">Lino</label>
+            <input type="checkbox" id="m-unsure" name="material" value="Not sure yet"><label for="m-unsure">Not sure yet</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="rooms">Scope</label>
+          <select id="rooms" name="rooms">
+            <option>A single room</option>
+            <option>2–3 rooms</option>
+            <option>4 or more rooms</option>
+            <option>Stairs &amp; landing</option>
+            <option>Whole home</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="date">Preferred date</label>
+          <input id="date" name="date" type="date">
+        </div>
+        <div class="field full">
+          <label for="notes">Anything we should know?</label>
+          <textarea id="notes" name="notes" placeholder="Underfloor heating, pets, a sample you've seen…"></textarea>
+        </div>
+        <button class="btn btn-garnet" type="submit">Request a consultation</button>
+        <p class="form-note">We'll call within one working day to arrange a time.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="visit">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top"><img src="logo/sr-logo-white.png" alt="SR Carpets & Floors" width="988" height="265"></a>
+        <p style="margin-top:26px;max-width:24em">Carpet, real wood and fine hard flooring, measured and fitted by our own craftsmen.</p>
+      </div>
+      <div>
+        <h4>Showroom</h4>
+        <!-- Placeholder address: replace with your own -->
+        <p>12 Example Street<br>Your Town<br>AB1 2CD</p>
+        <p style="margin-top:12px">01234 567890</p>
+      </div>
+      <div>
+        <h4>Opening hours</h4>
+        <ul class="hours">
+          <li><span>Mon–Fri</span><span>9:00–17:30</span></li>
+          <li><span>Saturday</span><span>9:30–16:00</span></li>
+          <li><span>Sunday</span><span>By appointment</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="#collections">Carpet</a></li>
+          <li><a href="#collections">Real wood</a></li>
+          <li><a href="#collections">LVT</a></li>
+          <li><a href="#collections">Laminate</a></li>
+          <li><a href="#collections">Lino</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 SR Carpets &amp; Floors</span>
+      <span>Private home consultations by appointment</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ponytail: no backend yet. Wire this to your form service (Formspree, Netlify Forms, etc.) when the site goes live.
+const form = document.getElementById('book-form');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  const first = form.name.value.trim().split(' ')[0].replace(/[<>&"]/g, '');
+  form.innerHTML = '<div class="thanks"><h3>Thank you, <em>' + first + '</em></h3><p>We\'ll call within one working day to arrange your consultation.</p></div>';
+});
+</script>
+</body>
+</html>
