@@ -69,7 +69,7 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: settle 2.4s var(--ease) both; }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,16,16,.88) 0%, rgba(18,16,16,.55) 45%, rgba(18,16,16,.1) 100%), linear-gradient(0deg, rgba(18,16,16,.7) 0%, rgba(18,16,16,0) 40%); }
 @keyframes settle { from { transform: scale(1.06); } to { transform: scale(1); } }
-.hero-inner { position: relative; z-index: 2; width: 100%; padding-block: 200px 72px; display: grid; gap: 64px; }
+.hero-inner { position: relative; z-index: 2; width: 100%; padding-block: 190px 72px; display: grid; gap: 48px; }
 .hero-copy { max-width: 760px; display: grid; gap: 32px; }
 .hero .label { color: var(--on-dark); }
 .hero h1 { font-size: clamp(50px, 7vw, 104px); }
@@ -83,9 +83,9 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .topbar-sep { opacity: .45; margin: 0 14px; }
 
 /* Brands: slow continuous scroll of the ranges we're official retailers of, sitting above the hero title */
-.brands { display: grid; gap: 14px; min-width: 0; }
-.brands-label { font: 500 14px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--on-dark-muted); }
-.marquee { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; user-select: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent); }
+.brands { display: grid; gap: 16px; min-width: 0; width: 100vw; margin-inline: calc(50% - 50vw); }   /* full width of the page */
+.brands-label { text-align: center; font: 500 14px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--on-dark-muted); }
+.marquee { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; user-select: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
 .marquee::-webkit-scrollbar { display: none; }
 .marquee.dragging { cursor: grabbing; }
 .marquee-track { display: flex; width: max-content; }
@@ -237,7 +237,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   html { scroll-behavior: auto; }
   .marquee { -webkit-mask-image: none; mask-image: none; cursor: default; }
   .marquee-track { width: auto; }
-  .marquee ul { flex-wrap: wrap; row-gap: 20px; height: auto; }
+  .marquee ul { flex-wrap: wrap; justify-content: center; row-gap: 20px; height: auto; }
   .marquee ul[aria-hidden] { display: none; }
 }
 </style>
@@ -267,41 +267,54 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     <!-- Placeholder: replace with your own fitted-room photography -->
     <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop" alt="A calm living room with a deep-pile rug over a pale wooden floor">
     <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <div class="brands" role="region" aria-label="Official retailers of">
-          <p class="brands-label">Official retailers of</p>
-          <!-- Brand logos in their own colours, adjusted to read on the dark hero (all-white set in logo/brands/white/). Heights balance visual weight between wide and square marks. -->
-          <div class="marquee">
-            <div class="marquee-track">
-              <ul>
-                <li><img src="logo/brands/karndean.png" alt="Karndean" style="height:37px"></li>
-                <li><img src="logo/brands/brintons.png" alt="Brintons" style="height:30px"></li>
-                <li><img src="logo/brands/j2-flooring.png" alt="J2 Flooring" style="height:26px"></li>
-                <li><img src="logo/brands/altro.png" alt="Altro" style="height:58px"></li>
-                <li><img src="logo/brands/polyflor.png" alt="Polyflor" style="height:30px"></li>
-                <li><img src="logo/brands/abingdon.png" alt="Abingdon Flooring" style="height:36px"></li>
-                <li><img src="logo/brands/associated-weavers.png" alt="Associated Weavers" style="height:38px"></li>
-                <li><img src="logo/brands/isense.png" alt="iSense" style="height:58px"></li>
-                <li><img src="logo/brands/invictus.png" alt="Invictus" style="height:58px"></li>
-                <li><img src="logo/brands/quick-step.png" alt="Quick-Step" style="height:40px"></li>
-                <li><img src="logo/brands/ibexx.png" alt="Ibexx Flooring Group" style="height:39px"></li>
-              </ul>
-              <ul aria-hidden="true">
-                <li><img src="logo/brands/karndean.png" alt="" style="height:37px"></li>
-                <li><img src="logo/brands/brintons.png" alt="" style="height:30px"></li>
-                <li><img src="logo/brands/j2-flooring.png" alt="" style="height:26px"></li>
-                <li><img src="logo/brands/altro.png" alt="" style="height:58px"></li>
-                <li><img src="logo/brands/polyflor.png" alt="" style="height:30px"></li>
-                <li><img src="logo/brands/abingdon.png" alt="" style="height:36px"></li>
-                <li><img src="logo/brands/associated-weavers.png" alt="" style="height:38px"></li>
-                <li><img src="logo/brands/isense.png" alt="" style="height:58px"></li>
-                <li><img src="logo/brands/invictus.png" alt="" style="height:58px"></li>
-                <li><img src="logo/brands/quick-step.png" alt="" style="height:40px"></li>
-                <li><img src="logo/brands/ibexx.png" alt="" style="height:39px"></li>
-              </ul>
-            </div>
+      <div class="brands" role="region" aria-label="Official retailers of">
+        <p class="brands-label">Official retailers of</p>
+        <!-- Brand logos in their own colours, adjusted to read on the dark hero (all-white set in logo/brands/white/). Heights balance visual weight between wide and square marks. -->
+        <div class="marquee">
+          <div class="marquee-track">
+            <ul>
+              <li><img src="logo/brands/karndean.png" alt="Karndean" style="height:37px"></li>
+              <li><img src="logo/brands/brintons.png" alt="Brintons" style="height:30px"></li>
+              <li><img src="logo/brands/j2-flooring.png" alt="J2 Flooring" style="height:26px"></li>
+              <li><img src="logo/brands/altro.png" alt="Altro" style="height:58px"></li>
+              <li><img src="logo/brands/polyflor.png" alt="Polyflor" style="height:30px"></li>
+              <li><img src="logo/brands/abingdon.png" alt="Abingdon Flooring" style="height:36px"></li>
+              <li><img src="logo/brands/associated-weavers.png" alt="Associated Weavers" style="height:38px"></li>
+              <li><img src="logo/brands/isense.png" alt="iSense" style="height:58px"></li>
+              <li><img src="logo/brands/invictus.png" alt="Invictus" style="height:58px"></li>
+              <li><img src="logo/brands/quick-step.png" alt="Quick-Step" style="height:40px"></li>
+              <li><img src="logo/brands/ibexx.png" alt="Ibexx Flooring Group" style="height:39px"></li>
+            </ul>
+            <ul aria-hidden="true">
+              <li><img src="logo/brands/karndean.png" alt="" style="height:37px"></li>
+              <li><img src="logo/brands/brintons.png" alt="" style="height:30px"></li>
+              <li><img src="logo/brands/j2-flooring.png" alt="" style="height:26px"></li>
+              <li><img src="logo/brands/altro.png" alt="" style="height:58px"></li>
+              <li><img src="logo/brands/polyflor.png" alt="" style="height:30px"></li>
+              <li><img src="logo/brands/abingdon.png" alt="" style="height:36px"></li>
+              <li><img src="logo/brands/associated-weavers.png" alt="" style="height:38px"></li>
+              <li><img src="logo/brands/isense.png" alt="" style="height:58px"></li>
+              <li><img src="logo/brands/invictus.png" alt="" style="height:58px"></li>
+              <li><img src="logo/brands/quick-step.png" alt="" style="height:40px"></li>
+              <li><img src="logo/brands/ibexx.png" alt="" style="height:39px"></li>
+            </ul>
+            <ul aria-hidden="true">
+              <li><img src="logo/brands/karndean.png" alt="" style="height:37px"></li>
+              <li><img src="logo/brands/brintons.png" alt="" style="height:30px"></li>
+              <li><img src="logo/brands/j2-flooring.png" alt="" style="height:26px"></li>
+              <li><img src="logo/brands/altro.png" alt="" style="height:58px"></li>
+              <li><img src="logo/brands/polyflor.png" alt="" style="height:30px"></li>
+              <li><img src="logo/brands/abingdon.png" alt="" style="height:36px"></li>
+              <li><img src="logo/brands/associated-weavers.png" alt="" style="height:38px"></li>
+              <li><img src="logo/brands/isense.png" alt="" style="height:58px"></li>
+              <li><img src="logo/brands/invictus.png" alt="" style="height:58px"></li>
+              <li><img src="logo/brands/quick-step.png" alt="" style="height:40px"></li>
+              <li><img src="logo/brands/ibexx.png" alt="" style="height:39px"></li>
+            </ul>
           </div>
         </div>
+      </div>
+      <div class="hero-copy">
         <h1>Trusted in West Yorkshire homes <em>for half a century</em></h1>
         <p class="hero-lede">For 50 years, families across Bradford, Leeds, Halifax and Huddersfield have chosen us for their floors. Book a private consultation and we'll bring our sample library to your home and measure every room.</p>
         <div class="hero-ctas">
@@ -557,7 +570,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo" href="#top"><img src="logo/sr-logo-white.png" alt="SR Carpets & Floors" width="988" height="265"></a>
+        <a class="logo" href="#top"><img src="logo/sr-logo-redmark.png" alt="SR Carpets & Floors" width="988" height="265"></a>
         <p style="margin-top:26px;max-width:24em">Carpet, real wood and fine hard flooring, serving Bradford, Leeds and West Yorkshire for half a century.</p>
       </div>
       <div>
@@ -598,14 +611,14 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 <script>
 
 // Retailers carousel: drifts slowly, and can be swiped (touch), dragged (mouse) or scrolled (trackpad).
-// The list is duplicated, so the scroll position wraps by half its width for an endless loop.
+// The list is repeated three times, so the scroll position wraps by one copy's width for an endless loop.
 (() => {
   const box = document.querySelector('.marquee');
   if (!box || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const SPEED = 30;                 // pixels per second while drifting
   const EDGE = 120;                 // keep a little room on the left so it can be swiped backwards too
   let pos = EDGE, last = 0, held = false, resumeAt = 0, drag = null;
-  const half = () => box.scrollWidth / 2;
+  const half = () => box.scrollWidth / box.querySelectorAll('ul').length;   // width of one copy of the list
   const wrap = p => { const h = half(); return h ? (((p - EDGE) % h) + h) % h + EDGE : p; };
   function pauseFor(ms) { resumeAt = performance.now() + ms; }
   function tick(t) {
