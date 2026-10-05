@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SR Carpets & Floors</title>
-<meta name="description" content="SR Carpets & Floors, Bradford. Premium carpet, real wood, LVT, laminate and lino. West Yorkshire's highest-rated flooring shop, serving Bradford and Leeds for half a century. Showroom at Forster Square Retail Park, with home consultations across West Yorkshire.">
+<meta name="description" content="SR Carpets & Floors, Bradford. Premium carpet, real wood, LVT, laminate and lino. West Yorkshire's highest-rated flooring shop, serving Bradford and Leeds for half a century. Showroom at Forster Square Retail Park, with free, no-obligation measuring across West Yorkshire.">
 <link rel="icon" type="image/png" sizes="512x512" href="logo/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500&family=Barlow:wght@300;400&display=swap">
 <style>
-/* Layout: full-bleed image hero, ivory gallery body with generous margins, a single garnet band for the consultation.
+/* Layout: full-bleed image hero, ivory gallery body with generous margins, a single garnet band for booking a measure.
    Fine serif carries the voice; the logo's condensed face appears only in small tracked labels, with its thin vertical rule. */
 :root {
   --ink: #121010;
@@ -170,7 +170,7 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .fact b { font: 300 52px/1 var(--serif); font-variant-numeric: lining-nums tabular-nums; }
 .fact span { font-size: 15px; color: var(--on-dark-muted); }
 
-/* Consultation */
+/* Booking: free measure */
 .book { background: var(--garnet-deep); color: var(--on-dark); }
 .book-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(48px, 8vw, 120px); }
 .book .label { color: var(--on-dark); }
@@ -232,7 +232,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 }
 @media (max-width: 600px) {
   .logo img { height: 34px; }
-  .nav .btn { padding: .9em 1em; letter-spacing: .2em; }
+  .nav .btn { padding: .9em 1em; letter-spacing: .12em; }
   .gallery, .steps, form, .facts, .foot-grid { grid-template-columns: 1fr; }
   .arrow { width: 38px; height: 38px; font-size: 16px; }
   .carousel { gap: 10px; }
@@ -269,7 +269,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
         <li><a href="#visit">Visit us</a></li>
       </ul>
     </nav>
-    <a class="btn btn-garnet" href="#book">Book a visit</a>
+    <a class="btn btn-garnet" href="#book">Book a measure</a>
   </div>
   </div>
 </header>
@@ -328,9 +328,9 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
       </div>
       <div class="hero-copy">
         <h1>Trusted in West Yorkshire homes <em>for half a century</em></h1>
-        <p class="hero-lede">For 50 years, families across Bradford, Leeds, Halifax and Huddersfield have chosen us for their floors. Book a private consultation and we'll bring our sample library to your home and measure every room.</p>
+        <p class="hero-lede">For 50 years, families across Bradford, Leeds, Halifax and Huddersfield have chosen us for their floors. Choose from hundreds of floors in our Bradford showroom, then book a free, no-obligation measure at your home.</p>
         <div class="hero-ctas">
-          <a class="btn btn-garnet" href="#book">Book a home consultation</a>
+          <a class="btn btn-garnet" href="#book">Book a free measure</a>
           <a class="btn btn-ghost" href="#collections">View the collections</a>
         </div>
       </div>
@@ -347,12 +347,11 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   <section class="book" id="book">
     <div class="wrap book-grid">
       <div class="book-intro">
-        <span class="label">Private consultation</span>
-        <h2>We'll bring the <em>showroom</em> to you</h2>
-        <p>Our choose-at-home service covers all of West Yorkshire. Tell us a little about your home and we'll arrange a visit at a time that suits you. There's no charge and no obligation.</p>
+        <span class="label">Free measuring service</span>
+        <h2>A free measure, <em>no obligation</em></h2>
+        <p>We measure homes across West Yorkshire, free of charge and with no obligation. Tell us a little about your home and we'll arrange a visit at a time that suits you.</p>
         <ul class="book-list">
-          <li>A flooring specialist visits your home</li>
-          <li>Samples selected around your rooms</li>
+          <li>A member of our team visits your home</li>
           <li>Every room measured, subfloor checked</li>
           <li>A written quotation with no obligation</li>
         </ul>
@@ -405,7 +404,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           <label for="notes">Anything we should know?</label>
           <textarea id="notes" name="notes" placeholder="Underfloor heating, pets, a sample you've seen…"></textarea>
         </div>
-        <button class="btn btn-garnet" type="submit">Request a consultation</button>
+        <button class="btn btn-garnet" type="submit">Request a free measure</button>
         <p class="form-note">We'll call you to arrange a time.</p>
       </form>
     </div>
@@ -493,7 +492,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           </figure>
           <figure class="slide" data-rating="5">
             <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote>“We had a home visit with samples to see… The staff will go above and beyond to help you.”</blockquote>
+            <blockquote>“The staff will go above and beyond to help you, they are so polite and helpful.”</blockquote>
             <figcaption class="cite">Colin T. · Google review</figcaption>
           </figure>
           <figure class="slide" data-rating="5">
@@ -536,7 +535,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
         <p>Our central Bradford showroom holds hundreds of rolls of carpet, with real wood, LVT, laminate and lino alongside. Our team has spent half a century helping West Yorkshire homes choose the right floor, and we'll tell you honestly what will last in each room.</p>
         <div class="facts">
           <div class="fact"><b>100s</b><span>of carpet rolls in stock to see and touch</span></div>
-          <div class="fact"><b>£0</b><span>home visit with samples and a measure</span></div>
+          <div class="fact"><b>£0</b><span>for a measure at your home, with no obligation</span></div>
           <div class="fact"><b>2024</b><span>Quality Business Award winner in Bradford</span></div>
         </div>
       </div>
@@ -550,18 +549,18 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           <span class="label">Our service</span>
           <h2>From first swatch to <em>final threshold</em></h2>
         </div>
-        <p>Serving Bradford, Leeds and West Yorkshire for 50 years. We visit your home with samples and help you choose the right floor for every room.</p>
+        <p>Serving Bradford, Leeds and West Yorkshire for 50 years. Choose your floor in our showroom, and we'll measure your home for free.</p>
       </div>
       <div class="steps">
         <div class="step">
           <span class="step-n">i.</span>
-          <h3>Home consultation</h3>
-          <p>We arrive with samples chosen around your brief and see them in your own light, against your own walls.</p>
+          <h3>Visit the showroom</h3>
+          <p>See and feel hundreds of carpets and floors in Bradford, with honest advice on what suits each room.</p>
         </div>
         <div class="step">
           <span class="step-n">ii.</span>
-          <h3>Survey &amp; measure</h3>
-          <p>Every room laser-measured and the subfloor checked for moisture and level, so the plan accounts for what lies beneath.</p>
+          <h3>Free measure</h3>
+          <p>We visit your home to measure every room and check the subfloor. It's free, with no obligation to buy.</p>
         </div>
         <div class="step">
           <span class="step-n">iii.</span>
@@ -615,7 +614,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     </div>
     <div class="foot-base">
       <span>© 2026 SR Carpets &amp; Floors</span>
-      <span>Choose-at-home service across West Yorkshire</span>
+      <span>Free, no-obligation measuring across West Yorkshire</span>
     </div>
   </div>
 </footer>
@@ -705,7 +704,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   if (!form.checkValidity()) { form.reportValidity(); return; }
   const first = form.name.value.trim().split(' ')[0].replace(/[<>&"]/g, '');
-  form.innerHTML = '<div class="thanks"><h3>Thank you, <em>' + first + '</em></h3><p>We\'ll call you shortly to arrange your consultation.</p></div>';
+  form.innerHTML = '<div class="thanks"><h3>Thank you, <em>' + first + '</em></h3><p>We\'ll call you shortly to arrange your free measure.</p></div>';
 });
 </script>
 </body>
