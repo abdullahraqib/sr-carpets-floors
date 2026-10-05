@@ -266,61 +266,70 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     </div>
   </section>
 
-  <section class="reviews" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews">
-    <div class="wrap">
-      <div class="reviews-head">
-        <span class="label">In our customers' words</span>
-        <p>4.9 out of 5 · 648 Google reviews</p>
+  <section class="book" id="book">
+    <div class="wrap book-grid">
+      <div class="book-intro">
+        <span class="label">Private consultation</span>
+        <h2>We'll bring the <em>showroom</em> to you</h2>
+        <p>Our choose-at-home service covers all of West Yorkshire. Tell us a little about your home and we'll arrange a visit at a time that suits you. There's no charge and no obligation.</p>
+        <ul class="book-list">
+          <li>A flooring specialist visits your home</li>
+          <li>Samples selected around your rooms</li>
+          <li>Every room measured, subfloor checked</li>
+          <li>A written quotation with no obligation</li>
+        </ul>
+        <p style="margin-top:32px">Prefer to talk? Call <a href="tel:+441274057433" style="color:inherit">01274 057433</a></p>
       </div>
-      <!-- Excerpts from 5-star Google reviews, quoted as written. Only slides with data-rating="5" are shown, in random order. -->
-      <div class="carousel">
-        <button class="arrow" type="button" data-dir="-1" aria-label="Previous review">←</button>
-        <div class="slides">
-          <figure class="slide on" data-rating="5">
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote>“Just had my stairs carpeted in herringbone design 100% pure wool in chalk colour with 11mm underlay. Great price and excellent service.”</blockquote>
-            <figcaption class="cite">Mohammed K. · Google review</figcaption>
-          </figure>
-          <figure class="slide" data-rating="5">
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote>“She took the time to understand what I was looking for and gave me honest advice, which made the whole process really easy.”</blockquote>
-            <figcaption class="cite">Monadi A. · Google review</figcaption>
-          </figure>
-          <figure class="slide" data-rating="5">
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote>“Their advice made all the difference, and the end result looks amazing. Professional, friendly, and genuinely knowledgeable.”</blockquote>
-            <figcaption class="cite">Mohammad U. · Google review</figcaption>
-          </figure>
-          <figure class="slide" data-rating="5">
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote>“We had a home visit with samples to see… The staff will go above and beyond to help you.”</blockquote>
-            <figcaption class="cite">Colin T. · Google review</figcaption>
-          </figure>
-          <figure class="slide" data-rating="5">
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote>“This is the 3rd time we are using this company… picked out some lovely carpets for us.”</blockquote>
-            <figcaption class="cite">Runa M. · Google review</figcaption>
-          </figure>
-          <figure class="slide" data-rating="5">
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote>“From the get go they helped me choose the carpet with ease and understood my vision.”</blockquote>
-            <figcaption class="cite">Binyaameen M. · Google review</figcaption>
-          </figure>
-          <figure class="slide" data-rating="5">
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote>“Had my flooring done today and couldn’t be happier. Great service and a fantastic result. Will definitely use them again!”</blockquote>
-            <figcaption class="cite">Bota A. · Google review</figcaption>
-          </figure>
-          <figure class="slide" data-rating="5">
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote>“The best local shop for carpet and laminate.”</blockquote>
-            <figcaption class="cite">Viviannne D. · Google review</figcaption>
-          </figure>
+
+      <form id="book-form" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" autocomplete="name" required>
         </div>
-        <button class="arrow" type="button" data-dir="1" aria-label="Next review">→</button>
-      </div>
-      <div class="dots" role="group" aria-label="Choose a review"></div>
-      <a class="link reviews-more" href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener">Read all reviews on Google →</a>
+        <div class="field">
+          <label for="phone">Telephone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="postcode">Postcode</label>
+          <input id="postcode" name="postcode" autocomplete="postal-code" required>
+        </div>
+        <fieldset>
+          <legend>Interested in</legend>
+          <div class="chips">
+            <input type="checkbox" id="m-carpet" name="material" value="Carpet"><label for="m-carpet">Carpet</label>
+            <input type="checkbox" id="m-wood" name="material" value="Real wood"><label for="m-wood">Real wood</label>
+            <input type="checkbox" id="m-lvt" name="material" value="LVT"><label for="m-lvt">LVT</label>
+            <input type="checkbox" id="m-laminate" name="material" value="Laminate"><label for="m-laminate">Laminate</label>
+            <input type="checkbox" id="m-lino" name="material" value="Lino"><label for="m-lino">Lino</label>
+            <input type="checkbox" id="m-unsure" name="material" value="Not sure yet"><label for="m-unsure">Not sure yet</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="rooms">Scope</label>
+          <select id="rooms" name="rooms">
+            <option>A single room</option>
+            <option>2–3 rooms</option>
+            <option>4 or more rooms</option>
+            <option>Stairs &amp; landing</option>
+            <option>Whole home</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="date">Preferred date</label>
+          <input id="date" name="date" type="date">
+        </div>
+        <div class="field full">
+          <label for="notes">Anything we should know?</label>
+          <textarea id="notes" name="notes" placeholder="Underfloor heating, pets, a sample you've seen…"></textarea>
+        </div>
+        <button class="btn btn-garnet" type="submit">Request a consultation</button>
+        <p class="form-note">We'll call you to arrange a time.</p>
+      </form>
     </div>
   </section>
 
@@ -432,70 +441,61 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     </div>
   </section>
 
-  <section class="book" id="book">
-    <div class="wrap book-grid">
-      <div class="book-intro">
-        <span class="label">Private consultation</span>
-        <h2>We'll bring the <em>showroom</em> to you</h2>
-        <p>Our choose-at-home service covers all of West Yorkshire. Tell us a little about your home and we'll arrange a visit at a time that suits you. There's no charge and no obligation.</p>
-        <ul class="book-list">
-          <li>A flooring specialist visits your home</li>
-          <li>Samples selected around your rooms</li>
-          <li>Every room measured, subfloor checked</li>
-          <li>A written quotation with no obligation</li>
-        </ul>
-        <p style="margin-top:32px">Prefer to talk? Call <a href="tel:+441274057433" style="color:inherit">01274 057433</a></p>
+  <section class="reviews" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews">
+    <div class="wrap">
+      <div class="reviews-head">
+        <span class="label">In our customers' words</span>
+        <p>4.9 out of 5 · 648 Google reviews</p>
       </div>
-
-      <form id="book-form" novalidate>
-        <div class="field">
-          <label for="name">Full name</label>
-          <input id="name" name="name" autocomplete="name" required>
+      <!-- Excerpts from 5-star Google reviews, quoted as written. Only slides with data-rating="5" are shown, in random order. -->
+      <div class="carousel">
+        <button class="arrow" type="button" data-dir="-1" aria-label="Previous review">←</button>
+        <div class="slides">
+          <figure class="slide on" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“Just had my stairs carpeted in herringbone design 100% pure wool in chalk colour with 11mm underlay. Great price and excellent service.”</blockquote>
+            <figcaption class="cite">Mohammed K. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“She took the time to understand what I was looking for and gave me honest advice, which made the whole process really easy.”</blockquote>
+            <figcaption class="cite">Monadi A. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“Their advice made all the difference, and the end result looks amazing. Professional, friendly, and genuinely knowledgeable.”</blockquote>
+            <figcaption class="cite">Mohammad U. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“We had a home visit with samples to see… The staff will go above and beyond to help you.”</blockquote>
+            <figcaption class="cite">Colin T. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“This is the 3rd time we are using this company… picked out some lovely carpets for us.”</blockquote>
+            <figcaption class="cite">Runa M. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“From the get go they helped me choose the carpet with ease and understood my vision.”</blockquote>
+            <figcaption class="cite">Binyaameen M. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“Had my flooring done today and couldn’t be happier. Great service and a fantastic result. Will definitely use them again!”</blockquote>
+            <figcaption class="cite">Bota A. · Google review</figcaption>
+          </figure>
+          <figure class="slide" data-rating="5">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>“The best local shop for carpet and laminate.”</blockquote>
+            <figcaption class="cite">Viviannne D. · Google review</figcaption>
+          </figure>
         </div>
-        <div class="field">
-          <label for="phone">Telephone</label>
-          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
-        </div>
-        <div class="field">
-          <label for="postcode">Postcode</label>
-          <input id="postcode" name="postcode" autocomplete="postal-code" required>
-        </div>
-        <fieldset>
-          <legend>Interested in</legend>
-          <div class="chips">
-            <input type="checkbox" id="m-carpet" name="material" value="Carpet"><label for="m-carpet">Carpet</label>
-            <input type="checkbox" id="m-wood" name="material" value="Real wood"><label for="m-wood">Real wood</label>
-            <input type="checkbox" id="m-lvt" name="material" value="LVT"><label for="m-lvt">LVT</label>
-            <input type="checkbox" id="m-laminate" name="material" value="Laminate"><label for="m-laminate">Laminate</label>
-            <input type="checkbox" id="m-lino" name="material" value="Lino"><label for="m-lino">Lino</label>
-            <input type="checkbox" id="m-unsure" name="material" value="Not sure yet"><label for="m-unsure">Not sure yet</label>
-          </div>
-        </fieldset>
-        <div class="field">
-          <label for="rooms">Scope</label>
-          <select id="rooms" name="rooms">
-            <option>A single room</option>
-            <option>2–3 rooms</option>
-            <option>4 or more rooms</option>
-            <option>Stairs &amp; landing</option>
-            <option>Whole home</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="date">Preferred date</label>
-          <input id="date" name="date" type="date">
-        </div>
-        <div class="field full">
-          <label for="notes">Anything we should know?</label>
-          <textarea id="notes" name="notes" placeholder="Underfloor heating, pets, a sample you've seen…"></textarea>
-        </div>
-        <button class="btn btn-garnet" type="submit">Request a consultation</button>
-        <p class="form-note">We'll call you to arrange a time.</p>
-      </form>
+        <button class="arrow" type="button" data-dir="1" aria-label="Next review">→</button>
+      </div>
+      <div class="dots" role="group" aria-label="Choose a review"></div>
+      <a class="link reviews-more" href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener">Read all reviews on Google →</a>
     </div>
   </section>
 </main>
