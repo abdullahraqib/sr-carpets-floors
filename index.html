@@ -89,7 +89,7 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .marquee-track { display: flex; width: max-content; animation: marquee 60s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee ul { display: flex; align-items: center; height: 60px; list-style: none; margin: 0; padding: 0; }
-.marquee li { padding-inline: 0 clamp(40px, 5vw, 64px); opacity: .82; }
+.marquee li { padding-inline: 0 clamp(40px, 5vw, 64px); opacity: .95; }
 .marquee li img { width: auto; max-width: none; display: block; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
@@ -266,7 +266,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
       <div class="hero-copy">
         <div class="brands" role="region" aria-label="Official retailers of">
           <p class="brands-label">Official retailers of</p>
-          <!-- Brand logos converted to white on transparent (logo/brands/). Heights balance visual weight between wide and square marks. -->
+          <!-- Brand logos in their own colours, adjusted to read on the dark hero (all-white set in logo/brands/white/). Heights balance visual weight between wide and square marks. -->
           <div class="marquee">
             <div class="marquee-track">
               <ul>
