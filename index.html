@@ -69,20 +69,21 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,16,16,.88) 0%, rgba(18,16,16,.55) 45%, rgba(18,16,16,.1) 100%), linear-gradient(0deg, rgba(18,16,16,.7) 0%, rgba(18,16,16,0) 40%); }
 @keyframes settle { from { transform: scale(1.06); } to { transform: scale(1); } }
 .hero-inner { position: relative; z-index: 2; width: 100%; padding-block: 200px 72px; display: grid; gap: 64px; }
-.hero-copy { max-width: 760px; display: grid; gap: 32px; }
+.hero-copy { max-width: 960px; display: grid; gap: 32px; }
 .hero .label { color: var(--on-dark); }
-.hero h1 { font-size: clamp(50px, 7vw, 104px); }
+.hero h1 { font-size: clamp(50px, 7vw, 104px); max-width: 760px; }
 .hero-lede { max-width: 34em; color: var(--on-dark-muted); font-size: 18px; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
-/* Proof row: quiet, typographic, same rhythm as the rest of the page */
-.proof { display: grid; gap: 22px; }
-.proof-head { font: italic 300 22px/1.3 var(--serif); color: var(--on-dark); }
-.proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--hair-dark); }
-.proof-item { padding: 26px 28px 0; border-left: 1px solid var(--hair-dark); display: grid; gap: 12px; align-content: start; min-width: 0; }
-.proof-item:first-child { padding-left: 0; border-left: 0; }
-.proof-item b { font: 300 46px/1 var(--serif); font-variant-numeric: lining-nums; }
-.proof-item b small { font-size: .5em; color: var(--on-dark-muted); margin-left: 2px; }
-.proof-item span { font: 500 11px/1.6 var(--label); letter-spacing: .26em; text-transform: uppercase; color: var(--on-dark-muted); }
+/* Trust panel above the headline: the claim, then real figures each linked to its source */
+.trust { display: inline-grid; justify-self: start; max-width: 100%; border: 1px solid var(--hair-dark); background: rgba(18,16,16,.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.trust-claim { padding: 12px 20px; border-bottom: 1px solid var(--hair-dark); font: italic 300 19px/1.3 var(--serif); color: var(--on-dark); }
+.trust-row { display: flex; flex-wrap: wrap; }
+.trust-row a { display: inline-flex; align-items: baseline; gap: 10px; padding: 14px 20px; text-decoration: none; color: var(--on-dark); }
+.trust-row a + a { border-left: 1px solid var(--hair-dark); }
+.trust b { font: 400 22px/1 var(--serif); font-variant-numeric: lining-nums; }
+.trust small { font: 500 11px/1.4 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--on-dark-muted); transition: color .3s; }
+.trust-stars { font-size: 11px; letter-spacing: .2em; color: #e9c46a; }
+.trust-row a:hover small { color: var(--on-dark); text-decoration: underline; text-underline-offset: 4px; }
 
 /* Statement */
 .statement { padding-block: clamp(110px, 14vw, 190px); text-align: center; }
@@ -209,9 +210,10 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .steps { grid-template-columns: 1fr 1fr; row-gap: 40px; }
   .step:nth-child(3) { padding-left: 0; border-left: 0; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
-  .proof-grid { grid-template-columns: 1fr 1fr; row-gap: 8px; }
-  .proof-item:nth-child(3) { padding-left: 0; border-left: 0; }
-  .proof-item b { font-size: 38px; }
+  .trust { justify-self: stretch; }
+  .trust-row { display: grid; }
+  .trust-row a { padding: 12px 16px; }
+  .trust-row a + a { border-left: 0; border-top: 1px solid var(--hair-dark); }
 }
 @media (max-width: 600px) {
   .logo img { height: 30px; }
@@ -250,20 +252,19 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop" alt="A calm living room with a deep-pile rug over a pale wooden floor">
     <div class="wrap hero-inner">
       <div class="hero-copy">
+        <div class="trust">
+          <p class="trust-claim">West Yorkshire's highest-rated flooring shop</p>
+          <div class="trust-row">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA" target="_blank" rel="noopener"><span class="trust-stars" aria-hidden="true">★★★★★</span><b>4.9</b><small>648 Google reviews</small></a>
+          <a href="https://www.facebook.com/sandr.carpets/" target="_blank" rel="noopener"><b>96%</b><small>recommend · 1,300+ Facebook reviews</small></a>
+          <a href="https://www.facebook.com/sandr.carpets/" target="_blank" rel="noopener"><b>40,000+</b><small>Facebook followers</small></a>
+          </div>
+        </div>
         <h1>Trusted in West Yorkshire homes <em>for half a century</em></h1>
         <p class="hero-lede">For 50 years, families across Bradford, Leeds, Halifax and Huddersfield have chosen us for their floors. Book a private consultation and we'll bring our sample library to your home and measure every room.</p>
         <div class="hero-ctas">
           <a class="btn btn-garnet" href="#book">Book a home consultation</a>
           <a class="btn btn-ghost" href="#collections">View the collections</a>
-        </div>
-      </div>
-      <div class="proof">
-        <p class="proof-head">The highest-rated flooring shop in West Yorkshire on Google and Facebook.</p>
-        <div class="proof-grid">
-          <div class="proof-item"><b>4.9<small>/5</small></b><span>Google rating<br>648 reviews</span></div>
-          <div class="proof-item"><b>96%</b><span>Recommend us<br>1,300+ Facebook reviews</span></div>
-          <div class="proof-item"><b>40,000+</b><span>Facebook<br>followers</span></div>
-          <div class="proof-item"><b>50</b><span>Years serving<br>West Yorkshire</span></div>
         </div>
       </div>
     </div>
