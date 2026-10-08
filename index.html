@@ -249,10 +249,6 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
-  .marquee { -webkit-mask-image: none; mask-image: none; cursor: default; }
-  .marquee-track { width: auto; }
-  .marquee ul { flex-wrap: wrap; justify-content: center; row-gap: 20px; height: auto; }
-  .marquee ul[aria-hidden] { display: none; }
 }
 </style>
 </head>
@@ -629,7 +625,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 // The list is repeated three times, so the scroll position wraps by one copy's width for an endless loop.
 (() => {
   const box = document.querySelector('.marquee');
-  if (!box || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!box) return;   // always moves, on every device (the owner wants it moving even with OS animations off)
   const SPEED = 30;                 // pixels per second while drifting
   const EDGE = 120;                 // keep a little room on the left so it can be swiped backwards too
   let pos = EDGE, last = 0, held = false, resumeAt = 0, drag = null;
@@ -667,7 +663,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   requestAnimationFrame(tick);
 })();
 
-// Reviews carousel: arrows, dots, auto-advance every 7s (paused on hover/focus, off for reduced motion)
+// Reviews carousel: arrows, dots, auto-advance every 7s (paused on hover/focus)
 (() => {
   const root = document.getElementById('reviews');
   const track = root.querySelector('.slides');
@@ -692,7 +688,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     slides.forEach((s, k) => { s.classList.toggle('on', k === i); s.setAttribute('aria-hidden', k !== i); });
     [...dots.children].forEach((d, k) => d.setAttribute('aria-current', k === i));
   }
-  const auto = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const auto = true;   // always auto-advance, on every device
   function restart() { clearInterval(timer); if (auto) timer = setInterval(() => show(i + 1), 7000); }
   root.querySelectorAll('.arrow').forEach(a => a.onclick = () => { show(i + +a.dataset.dir); restart(); });
   root.addEventListener('mouseenter', () => clearInterval(timer));
