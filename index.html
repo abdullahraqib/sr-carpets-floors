@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500&family=Barlow:wght@300;400&display=swap">
 <style>
-/* Layout: full-bleed image hero, ivory gallery body with generous margins, a single garnet band for booking a measure.
+/* Layout: full-bleed image hero, ivory gallery body with generous margins, a single garnet band for booking a measure (intro above a landscape form).
    Fine serif carries the voice; the logo's condensed face appears only in small tracked labels, with its thin vertical rule. */
 :root {
   --ink: #121010;
@@ -170,23 +170,21 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .fact b { font: 300 52px/1 var(--serif); font-variant-numeric: lining-nums tabular-nums; }
 .fact span { font-size: 15px; color: var(--on-dark-muted); }
 
-/* Booking: free measure */
+/* Booking: free measure. Centred intro above a landscape form */
 .book { background: var(--garnet-deep); color: var(--on-dark); }
-.book-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(48px, 8vw, 120px); align-items: start; }
-.book-intro { display: grid; gap: 30px; align-content: start; }   /* same rhythm as .craft-copy */
+.book-grid { display: grid; gap: clamp(48px, 6vw, 72px); }
+.book-intro { display: grid; justify-items: center; gap: 26px; text-align: center; max-width: 52em; margin-inline: auto; }
 .book .label { color: var(--on-dark); }
 .book h2 { font-size: clamp(42px, 5vw, 72px); }   /* matches .sec-head h2 */
-.book-intro p { color: rgba(243,238,230,.78); max-width: 32em; }
-.book-list { list-style: none; padding: 0; margin: 0; display: grid; border-top: 1px solid var(--hair-dark); }
-.book-list li { padding-block: 16px; border-bottom: 1px solid var(--hair-dark); font-size: 16px; }
-.book-call a { color: inherit; text-underline-offset: 4px; }
-form { background: var(--ivory); color: var(--text); padding: clamp(28px, 4.5vw, 60px); display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px; }
+.book-intro p { color: rgba(243,238,230,.78); max-width: 40em; }
+form { background: var(--ivory); color: var(--text); padding: clamp(28px, 4.5vw, 60px); display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
 .field { display: grid; gap: 6px; min-width: 0; }
 .field.full { grid-column: 1 / -1; }
+.field.wide { grid-column: span 2; }
 label, legend { font: 500 16px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
 input, select, textarea { font: 300 17px/1.4 var(--body); color: var(--text); background: transparent; border: 0; border-bottom: 1px solid var(--hair); padding: 12px 0; border-radius: 0; width: 100%; transition: border-color .3s; }
 input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: var(--garnet); }
-textarea { resize: vertical; min-height: 84px; }
+textarea { resize: vertical; min-height: 48px; height: 48px; }
 fieldset { border: 0; padding: 0; margin: 0; grid-column: 1 / -1; min-width: 0; }
 legend { padding: 0; margin-bottom: 14px; }   /* fieldset gap doesn't apply to legend */
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -195,8 +193,10 @@ legend { padding: 0; margin-bottom: 14px; }   /* fieldset gap doesn't apply to l
 .chips label:hover { border-color: var(--text); }
 .chips input:checked + label { background: var(--ink); color: var(--on-dark); border-color: var(--ink); }
 .chips input:focus-visible + label { outline: 1px solid var(--garnet); outline-offset: 3px; }
-form .btn { grid-column: 1 / -1; padding-block: 1.5em; }
-.form-note { grid-column: 1 / -1; font-size: 14px; color: var(--muted); text-align: center; }
+.form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; padding-top: 8px; }
+.form-foot .btn { padding-block: 1.5em; }
+.form-note { font-size: 15px; color: var(--muted); }
+.form-note a { color: var(--garnet); text-underline-offset: 4px; }
 .thanks { grid-column: 1 / -1; text-align: center; padding: 48px 0; display: grid; gap: 14px; }
 .thanks h3 { font-size: 46px; }
 .thanks h3 em { color: var(--garnet); }
@@ -227,7 +227,9 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .nav ul { display: none; }
   .hero { min-height: 680px; }
   .hero-inner { padding-block: 158px 48px; }
-  .sec-head, .craft-grid, .book-grid { grid-template-columns: 1fr; }
+  .sec-head, .craft-grid { grid-template-columns: 1fr; }
+  form { grid-template-columns: 1fr 1fr; }
+  .form-foot { flex-direction: column-reverse; align-items: stretch; text-align: center; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .piece:nth-child(1) { grid-column: 1 / -1; }
   .piece:nth-child(2) { grid-column: auto; margin-top: 0; }
@@ -247,7 +249,9 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .topbar-stars { font-size: 17px; }
   .topbar-icon { width: 22px; height: 22px; margin-right: 8px; }
   .step, .step + .step { padding: 32px 0 0; border-left: 0; }
-  form .btn { letter-spacing: .2em; padding-inline: 1em; }   /* keep the label on one line */
+  .field.wide { grid-column: 1 / -1; }
+  textarea { height: 84px; }
+  .form-foot .btn { letter-spacing: .2em; padding-inline: 1em; }   /* keep the label on one line */
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -352,13 +356,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
       <div class="book-intro">
         <span class="label">Free measuring service</span>
         <h2>A free measure, <em>no obligation</em></h2>
-        <p>We measure homes across West Yorkshire, free of charge and with no obligation. Tell us a little about your home and we'll arrange a visit at a time that suits you.</p>
-        <ul class="book-list">
-          <li>A member of our team visits your home</li>
-          <li>Every room measured, subfloor checked</li>
-          <li>A written quotation with no obligation</li>
-        </ul>
-        <p class="book-call">Prefer to talk? Call <a href="tel:+441274057433">01274 057433</a></p>
+        <p>Wherever you are in West Yorkshire, a member of our team will come to your home at a time that suits you. We measure every room, check the subfloor and talk through the options, then send a written quotation. It costs nothing, and you're under no obligation to buy.</p>
       </div>
 
       <form id="book-form" novalidate>
@@ -403,12 +401,14 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           <label for="date">Preferred date</label>
           <input id="date" name="date" type="date">
         </div>
-        <div class="field full">
+        <div class="field wide">
           <label for="notes">Anything we should know?</label>
           <textarea id="notes" name="notes" placeholder="Underfloor heating, pets, a sample you've seen…"></textarea>
         </div>
-        <button class="btn btn-garnet" type="submit">Request a free measure</button>
-        <p class="form-note">We'll call you to arrange a time.</p>
+        <div class="form-foot">
+          <p class="form-note">We'll call you to arrange a time. Prefer to talk? Call <a href="tel:+441274057433">01274 057433</a></p>
+          <button class="btn btn-garnet" type="submit">Request a free measure</button>
+        </div>
       </form>
     </div>
   </section>
