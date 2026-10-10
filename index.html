@@ -658,6 +658,16 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     if (!drag) return;
     drag = null; box.classList.remove('dragging'); pauseFor(2500);
   });
+  // start with the first logos (Karndean, Brintons) in clear view, just inside the left fade
+  const START = 0.15;   // left fade covers 14% of the strip; Karndean starts just past it
+  const start = () => {
+    const first = box.querySelectorAll("ul")[1]?.querySelector("img");   // Karndean, in the second copy (room to swipe back)
+    if (!first) return;
+    const offset = first.getBoundingClientRect().left - box.getBoundingClientRect().left;
+    pos = wrap(box.scrollLeft + offset - box.clientWidth * START); box.scrollLeft = pos;
+  };
+  start();
+  if (document.readyState !== "complete") addEventListener("load", start, { once: true });   // re-place once logo widths are known
   requestAnimationFrame(tick);
 })();
 
