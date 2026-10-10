@@ -183,7 +183,8 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .book-intro p { color: rgba(243,238,230,.85); max-width: 38em; }
 form { background: var(--ivory); color: var(--text); padding: clamp(28px, 4vw, 52px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-flow: row dense; gap: 26px 32px; }
 .field { display: grid; gap: 6px; min-width: 0; }
-.field.full { grid-column: span 2; }
+.field.full, .field-email { grid-column: span 2; }
+.field-address { grid-column: span 3; }
 label, legend { font: 500 16px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
 input, select, textarea { font: 300 17px/1.4 var(--body); color: var(--text); background: transparent; border: 0; border-bottom: 1px solid var(--hair); padding: 12px 0; border-radius: 0; width: 100%; transition: border-color .3s; }
 input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: var(--garnet); }
@@ -236,7 +237,8 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .hero-lede { font-size: 16px; }
   .sec-head, .craft-grid, .book-grid, .book-intro { grid-template-columns: 1fr; }
   form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .field.full, form .btn, .form-note { grid-column: 1 / -1; }
+  .field.full, .field-email, .field-address, form .btn, .form-note { grid-column: 1 / -1; }
+  form { grid-auto-flow: row; }
   .form-note { text-align: center; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .piece:nth-child(1) { grid-column: 1 / -1; }
@@ -502,9 +504,13 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           <label for="phone">Telephone</label>
           <input id="phone" name="phone" type="tel" autocomplete="tel" required>
         </div>
-        <div class="field">
+        <div class="field field-email">
           <label for="email">Email</label>
           <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field field-address">
+          <label for="address">Address</label>
+          <input id="address" name="address" autocomplete="street-address" placeholder="House number, street and town" required>
         </div>
         <div class="field">
           <label for="postcode">Postcode</label>
