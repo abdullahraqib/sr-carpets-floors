@@ -67,14 +67,14 @@ header .nav-bar { background: rgba(0,0,0,.55); backdrop-filter: blur(6px); -webk
 .btn-short { display: none; }   /* phones show the short label */
 
 /* Hero */
-.hero { position: relative; min-height: 780px; display: flex; align-items: flex-end; background: var(--ink); color: var(--on-dark); overflow: hidden; }
+.hero { position: relative; min-height: 0; display: flex; align-items: flex-end; background: var(--ink); color: var(--on-dark); overflow: hidden; }
 .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: settle 2.4s var(--ease) both; }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,16,16,.88) 0%, rgba(18,16,16,.55) 45%, rgba(18,16,16,.1) 100%), linear-gradient(0deg, rgba(18,16,16,.7) 0%, rgba(18,16,16,0) 40%); }
 @keyframes settle { from { transform: scale(1.06); } to { transform: scale(1); } }
-.hero-inner { position: relative; z-index: 2; width: 100%; padding-block: 172px 72px; display: grid; gap: 48px; }
-.hero-copy { max-width: 760px; display: grid; gap: 32px; }
+.hero-inner { position: relative; z-index: 2; width: 100%; padding-block: 172px 36px; display: grid; gap: 32px; }
+.hero-copy { max-width: 760px; display: grid; gap: 24px; }
 .hero .label { color: var(--on-dark); }
-.hero h1 { font-size: clamp(50px, 7vw, 104px); }
+.hero h1 { font-size: clamp(46px, min(7vw, 10.5vh), 104px); }   /* scales with screen height too, so the next section peeks in */
 .hero-lede { max-width: 34em; color: var(--on-dark-muted); font-size: 18px; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
 /* Slim ratings banner along the very top */
@@ -216,6 +216,11 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .btn-long { display: none; }
   .btn-short { display: inline; }
 }
+@media (max-height: 820px) {   /* short laptop screens: a little tighter so the next section still peeks in */
+  .hero-inner { padding-top: 172px; gap: 24px; }
+  .hero h1 { font-size: clamp(46px, min(7vw, 9vh), 104px); }
+  .hero-copy { gap: 20px; }
+}
 @media (max-width: 1300px) {   /* laptops: keep the menu links, just tighter */
   .nav ul { gap: 20px; font-size: 15px; letter-spacing: .15em; }
   .nav .btn { font-size: 15px; letter-spacing: .1em; padding: 1.1em 1.2em; }
@@ -223,8 +228,10 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 }
 @media (max-width: 1000px) {
   .nav ul { display: none; }
-  .hero { min-height: 680px; }
-  .hero-inner { padding-block: 158px 48px; }
+  .hero { min-height: 0; }
+  .hero-inner { padding-block: 150px 28px; gap: 24px; }
+  .hero-copy { gap: 18px; }
+  .hero-lede { font-size: 16px; }
   .sec-head, .craft-grid, .book-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .piece:nth-child(1) { grid-column: 1 / -1; }
