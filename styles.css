@@ -160,7 +160,7 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .fact span { font-size: 15px; color: var(--on-dark-muted); }
 
 /* Booking: free measure */
-.book { background: var(--garnet-deep); color: var(--on-dark); padding-top: clamp(48px, 6vw, 80px); }
+.book { background: var(--garnet-deep); color: var(--on-dark); padding-block: clamp(48px, 6vw, 80px); }   /* same space above and below the form */
 .book-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(32px, 4vw, 52px); }   /* landscape: intro across the top, form full width below */
 .book-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 20px clamp(40px, 6vw, 96px); align-items: end; }
 .book-intro-copy { display: grid; gap: 14px; }
@@ -330,6 +330,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .mobile-menu nav a { display: block; padding: 16px 0; border-bottom: 1px solid var(--hair-dark); opacity: 1; }
 }
 @media (max-width: 700px) {
+  .book { padding-bottom: 56px; }   /* phone spacing unchanged by the desktop fix */
   .filters { gap: 8px; }
   .filters button { padding: 11px 14px; font-size: 14px; letter-spacing: .06em; }
   .filter-count { margin: 14px 0 22px; }
