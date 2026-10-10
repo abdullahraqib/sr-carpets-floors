@@ -621,20 +621,20 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 
 <script>
 
-// Retailers carousel: drifts slowly, and can be swiped (touch), dragged (mouse) or scrolled (trackpad).
+// Retailers carousel: drifts slowly (never pauses on hover), and can be swiped (touch), dragged (mouse) or scrolled (trackpad).
 // The list is repeated three times, so the scroll position wraps by one copy's width for an endless loop.
 (() => {
   const box = document.querySelector('.marquee');
   if (!box) return;   // always moves, on every device (the owner wants it moving even with OS animations off)
   const SPEED = 30;                 // pixels per second while drifting
   const EDGE = 120;                 // keep a little room on the left so it can be swiped backwards too
-  let pos = EDGE, last = 0, held = false, resumeAt = 0, drag = null;
+  let pos = EDGE, last = 0, resumeAt = 0, drag = null;
   const half = () => box.scrollWidth / box.querySelectorAll('ul').length;   // width of one copy of the list
   const wrap = p => { const h = half(); return h ? (((p - EDGE) % h) + h) % h + EDGE : p; };
   function pauseFor(ms) { resumeAt = performance.now() + ms; }
   function tick(t) {
     const dt = last ? (t - last) / 1000 : 0; last = t;
-    if (!held && !drag && t > resumeAt) { pos = wrap(pos + SPEED * dt); box.scrollLeft = pos; }
+    if (!drag && t > resumeAt) { pos = wrap(pos + SPEED * dt); box.scrollLeft = pos; }
     requestAnimationFrame(tick);
   }
   box.addEventListener('scroll', () => {
@@ -645,8 +645,6 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
       pos = w; pauseFor(2500);
     }
   }, { passive: true });
-  box.addEventListener('mouseenter', () => held = true);
-  box.addEventListener('mouseleave', () => { held = false; pauseFor(600); });
   box.addEventListener('touchstart', () => pauseFor(4000), { passive: true });
   box.addEventListener('pointerdown', e => {
     if (e.pointerType !== 'mouse') return;          // touch uses native swiping
