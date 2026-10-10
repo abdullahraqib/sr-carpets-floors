@@ -90,7 +90,7 @@ header .nav-bar { background: rgba(0,0,0,.55); backdrop-filter: blur(6px); -webk
 
 /* Brands: slow continuous scroll of the ranges we're official retailers of, sitting above the hero title */
 .brands { display: grid; gap: 16px; min-width: 0; width: 100vw; margin-inline: calc(50% - 50vw); }   /* full width of the page */
-.brands-label { text-align: center; font: 500 16px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--on-dark-muted); }
+.brands-label { text-align: center; font: 500 16px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: #fff; }
 .marquee { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; user-select: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
 .marquee::-webkit-scrollbar { display: none; }
 .marquee.dragging { cursor: grabbing; }
@@ -658,13 +658,13 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
     if (!drag) return;
     drag = null; box.classList.remove('dragging'); pauseFor(2500);
   });
-  // start with the first logos (Karndean, Brintons) in clear view, just inside the left fade
-  const START = 0.15;   // left fade covers 14% of the strip; Karndean starts just past it
+  // start with Ibexx centred, so Karndean, Brintons and the rest follow in from the right
   const start = () => {
-    const first = box.querySelectorAll("ul")[1]?.querySelector("img");   // Karndean, in the second copy (room to swipe back)
-    if (!first) return;
-    const offset = first.getBoundingClientRect().left - box.getBoundingClientRect().left;
-    pos = wrap(box.scrollLeft + offset - box.clientWidth * START); box.scrollLeft = pos;
+    const imgs = box.querySelectorAll("ul")[0]?.querySelectorAll("img");
+    const ibexx = imgs && imgs[imgs.length - 1];   // last logo of the first copy; the second copy follows it
+    if (!ibexx) return;
+    const r = ibexx.getBoundingClientRect(), centre = r.left + r.width / 2 - box.getBoundingClientRect().left;
+    pos = wrap(box.scrollLeft + centre - box.clientWidth / 2); box.scrollLeft = pos;
   };
   start();
   if (document.readyState !== "complete") addEventListener("load", start, { once: true });   // re-place once logo widths are known
