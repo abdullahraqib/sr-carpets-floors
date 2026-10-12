@@ -3,8 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SR Carpets & Floors</title>
-<meta name="description" content="SR Carpets & Floors, Bradford. Premium carpet, real wood, LVT, laminate and lino. West Yorkshire's highest-rated flooring shop, serving Bradford and Leeds for half a century. Showroom at Forster Square Retail Park, with free, no-obligation measuring across West Yorkshire.">
+<title>Carpets &amp; Flooring in Bradford | SR Carpets &amp; Floors</title>
+<meta name="description" content="Carpet, real wood, LVT, laminate and lino from our Bradford showroom at Forster Square. Rated 4.9 from 600+ Google reviews. Book a free, no-obligation home measure.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="SR Carpets &amp; Floors">
+<meta property="og:title" content="Carpets &amp; Flooring in Bradford | SR Carpets &amp; Floors">
+<meta property="og:description" content="Hundreds of carpets and floors to see in our Bradford showroom, and a free, no-obligation measure at your home.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeGoodsStore",
+  "name": "SR Carpets & Floors",
+  "description": "Carpet, real wood, LVT, laminate and lino showroom in Bradford, with free, no-obligation home measuring across West Yorkshire.",
+  "telephone": "+44 1274 057433",
+  "email": "info@srcarpetsandfloors.co.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Forster Square Retail Park, 60 Valley Road",
+    "addressLocality": "Bradford",
+    "addressRegion": "West Yorkshire",
+    "postalCode": "BD1 4AA",
+    "addressCountry": "GB"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "17:00" }
+  ],
+  "areaServed": ["Bradford", "Leeds", "Halifax", "Huddersfield", "West Yorkshire"],
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=SR+Carpets+%26+Floors+Forster+Square+Retail+Park+Bradford+BD1+4AA",
+  "sameAs": ["https://www.facebook.com/sandr.carpets/"]
+}
+</script>
 <link rel="icon" type="image/png" sizes="512x512" href="logo/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,6 +180,7 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 
 /* Process */
 .process { background: var(--stone); }
+.process-cta { margin-top: 56px; }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--hair); }
 .step { padding: 40px 36px 0 0; display: grid; gap: 16px; align-content: start; }
 .step + .step { padding-left: 36px; border-left: 1px solid var(--hair); }
@@ -195,11 +227,23 @@ legend { padding: 0; margin-bottom: 14px; }   /* fieldset gap doesn't apply to l
 .chips input:focus-visible + label { outline: 1px solid var(--garnet); outline-offset: 3px; }
 .form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; padding-top: 8px; }
 .form-foot .btn { padding-block: 1.5em; }
-.form-note { font-size: 15px; color: var(--muted); }
+.form-note { display: grid; gap: 6px; font-size: 15px; color: var(--muted); max-width: 40em; }
+.form-stars { color: var(--star); letter-spacing: .12em; margin-right: 6px; }
+.opt { font: 300 13px/1 var(--body); letter-spacing: 0; text-transform: none; }
 .form-note a { color: var(--garnet); text-underline-offset: 4px; }
 .thanks { grid-column: 1 / -1; text-align: center; padding: 48px 0; display: grid; gap: 14px; }
 .thanks h3 { font-size: 46px; }
 .thanks h3 em { color: var(--garnet); }
+
+/* FAQ: answers the common objections before booking */
+.faq-list { max-width: 900px; border-top: 1px solid var(--hair); }
+.faq-list details { border-bottom: 1px solid var(--hair); }
+.faq-list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding-block: 26px; font: 400 clamp(24px, 2.4vw, 30px)/1.2 var(--serif); }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; font: 300 26px/1 var(--body); color: var(--garnet); transition: transform .3s var(--ease); }
+.faq-list details[open] summary::after { transform: rotate(45deg); }
+.faq-list details p { color: var(--muted); max-width: 40em; padding-bottom: 28px; }
+.faq-cta { margin-top: 48px; }
 
 /* Footer */
 footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96px 40px; font-size: 15px; }
@@ -273,10 +317,11 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
         <li><a href="#collections">Collections</a></li>
         <li><a href="#process">Our service</a></li>
         <li><a href="#craft">The showroom</a></li>
+        <li><a href="#faq">FAQs</a></li>
         <li><a href="#visit">Visit us</a></li>
       </ul>
     </nav>
-    <a class="btn btn-garnet" href="#book"><span class="btn-long">Schedule a free measure</span><span class="btn-short">Free measure</span></a>
+    <a class="btn btn-garnet" href="#book"><span class="btn-long">Book a free measure</span><span class="btn-short">Free measure</span></a>
   </div>
   </div>
 </header>
@@ -284,7 +329,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 <main id="top">
   <section class="hero" style="padding-block:0">
     <!-- Placeholder: replace with your own fitted-room photography -->
-    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop" alt="A calm living room with a deep-pile rug over a pale wooden floor">
+    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop" fetchpriority="high" alt="A calm living room with a deep-pile rug over a pale wooden floor">
     <div class="wrap hero-inner">
       <div class="brands" role="region" aria-label="Official retailers of">
         <p class="brands-label">Official retailers of</p>
@@ -334,8 +379,8 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
         </div>
       </div>
       <div class="hero-copy">
-        <h1>Trusted in West Yorkshire homes <em>for half a century</em></h1>
-        <p class="hero-lede">For 50 years, families across Bradford, Leeds, Halifax and Huddersfield have chosen us for their floors. Choose from hundreds of floors in our Bradford showroom, then book a free, no-obligation measure at your home.</p>
+        <h1>Carpets and flooring in Bradford, <em>trusted for 50 years</em></h1>
+        <p class="hero-lede">See hundreds of carpets, real wood, LVT, laminate and lino in our Forster Square showroom. When you've found the one, we'll measure your home for free, anywhere from Bradford and Leeds to Halifax and Huddersfield.</p>
         <div class="hero-ctas">
           <a class="btn btn-garnet" href="#book">Book a free measure</a>
           <a class="btn btn-ghost" href="#collections">View the collections</a>
@@ -369,15 +414,15 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           <input id="phone" name="phone" type="tel" autocomplete="tel" required>
         </div>
         <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
+          <label for="email">Email <span class="opt">(optional)</span></label>
+          <input id="email" name="email" type="email" autocomplete="email">
         </div>
         <div class="field">
           <label for="postcode">Postcode</label>
           <input id="postcode" name="postcode" autocomplete="postal-code" required>
         </div>
         <fieldset>
-          <legend>Interested in</legend>
+          <legend>Interested in <span class="opt">(optional)</span></legend>
           <div class="chips">
             <input type="checkbox" id="m-carpet" name="material" value="Carpet"><label for="m-carpet">Carpet</label>
             <input type="checkbox" id="m-wood" name="material" value="Real wood"><label for="m-wood">Real wood</label>
@@ -388,8 +433,9 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           </div>
         </fieldset>
         <div class="field">
-          <label for="rooms">Scope</label>
+          <label for="rooms">Rooms <span class="opt">(optional)</span></label>
           <select id="rooms" name="rooms">
+            <option value="" selected>Select one…</option>
             <option>A single room</option>
             <option>2–3 rooms</option>
             <option>4 or more rooms</option>
@@ -398,16 +444,19 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           </select>
         </div>
         <div class="field">
-          <label for="date">Preferred date</label>
+          <label for="date">Preferred date <span class="opt">(optional)</span></label>
           <input id="date" name="date" type="date">
         </div>
         <div class="field wide">
-          <label for="notes">Anything we should know?</label>
+          <label for="notes">Anything we should know? <span class="opt">(optional)</span></label>
           <textarea id="notes" name="notes" placeholder="Underfloor heating, pets, a sample you've seen…"></textarea>
         </div>
         <div class="form-foot">
-          <p class="form-note">We'll call you to arrange a time. Prefer to talk? Call <a href="tel:+441274057433">01274 057433</a></p>
-          <button class="btn btn-garnet" type="submit">Request a free measure</button>
+          <div class="form-note">
+            <p><span class="form-stars" aria-hidden="true">★★★★★</span> Rated 4.9 from 600+ Google reviews</p>
+            <p>We'll call you to arrange a time and only use your details for your measure. Prefer to talk? Call <a href="tel:+441274057433">01274 057433</a></p>
+          </div>
+          <button class="btn btn-garnet" type="submit">Book my free measure</button>
         </div>
       </form>
     </div>
@@ -576,6 +625,42 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
           <p>Laid by trusted independent fitters, with furniture moved and your old flooring taken away.</p>
         </div>
       </div>
+      <a class="btn btn-garnet process-cta" href="#book">Book a free measure</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label">Questions</span>
+          <h2>Before you <em>book a measure</em></h2>
+        </div>
+        <p>Can't see your question here? Call us on <a href="tel:+441274057433">01274 057433</a> or visit the showroom.</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Is the home measure really free?</summary>
+          <p>Yes. We measure every room and check the subfloor at no cost, then send a written quotation. You're under no obligation to buy.</p>
+        </details>
+        <details>
+          <summary>Which areas do you cover?</summary>
+          <p>We measure homes across West Yorkshire, including Bradford, Leeds, Halifax and Huddersfield.</p>
+        </details>
+        <details>
+          <summary>What's included in the quotation?</summary>
+          <p>Flooring, underlay, furniture moving, subfloor preparation and removal of your old floor, all set out in one written quote.</p>
+        </details>
+        <details>
+          <summary>Who fits the floor?</summary>
+          <p>Your floor is laid by trusted independent fitters. They move your furniture and take your old flooring away.</p>
+        </details>
+        <details>
+          <summary>Can I see the floors before I decide?</summary>
+          <p>Our showroom at Forster Square Retail Park, Bradford holds hundreds of carpet rolls, with real wood, LVT, laminate and lino alongside. It's open seven days a week.</p>
+        </details>
+      </div>
+      <a class="btn btn-garnet faq-cta" href="#book">Book a free measure</a>
     </div>
   </section>
 </main>
@@ -707,7 +792,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   if (!form.checkValidity()) { form.reportValidity(); return; }
   const first = form.name.value.trim().split(' ')[0].replace(/[<>&"]/g, '');
-  form.innerHTML = '<div class="thanks"><h3>Thank you, <em>' + first + '</em></h3><p>We\'ll call you shortly to arrange your free measure.</p></div>';
+  form.innerHTML = '<div class="thanks"><h3>Thank you, <em>' + first + '</em></h3><p>We\'ll call you shortly to arrange your free measure. Need us sooner? Call <a href="tel:+441274057433">01274 057433</a></p></div>';
 });
 </script>
 </body>
