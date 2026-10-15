@@ -173,14 +173,14 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .book-intro p { color: rgba(243,238,230,.85); max-width: 38em; }
 /* Free measure form: a soft two-step card */
 form { background: var(--ivory); color: var(--text); padding: clamp(26px, 3.2vw, 44px); display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
-.form-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding-bottom: 24px; border-bottom: 1px solid var(--hair); }
-.form-call { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; background: #fff; border: 1px solid var(--hair); color: var(--text); text-decoration: none; font: 400 15px/1.35 var(--body); transition: border-color .3s var(--ease); }
-.form-call:hover { border-color: var(--garnet); }
+.form-call { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; color: var(--text); text-decoration: none; font: 400 15px/1.35 var(--body); }
+.form-call svg { flex: none; color: var(--garnet); }
+.form-call:hover b { text-decoration: underline; }
 .form-call b { font-weight: 600; color: var(--garnet); white-space: nowrap; }
-.form-call-icon { flex: none; width: 38px; height: 38px; background: var(--garnet); color: #fff; display: grid; place-items: center; }
 .form-step { display: grid; gap: 24px; }
 .form-step[hidden] { display: none; }
-.step-head { display: grid; gap: 6px; }
+.step-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px 32px; }
+.step-head > div { display: grid; gap: 6px; }
 .step-head h3 { font-size: clamp(30px, 3vw, 40px); line-height: 1.1; margin: 0; }
 .step-head h3 em { color: var(--garnet); }
 .step-head p { margin: 0; color: var(--muted); font-size: 16px; }
@@ -403,7 +403,6 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .book-list li { padding-block: 12px; }
   form { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 24px; }
   .step-grid, .step-grid-two { grid-template-columns: minmax(0, 1fr); }
-  .form-call { width: 100%; }
   .step-actions { flex-direction: column-reverse; align-items: stretch; }
   .btn-back { margin: 0; text-align: center; }
   input, select, textarea { min-height: 48px; font-size: 16px; }
