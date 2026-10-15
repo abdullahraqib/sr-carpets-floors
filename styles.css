@@ -90,11 +90,6 @@ header .nav-bar { background: rgba(0,0,0,.55); backdrop-filter: blur(6px); -webk
 .marquee li img { width: auto; max-width: none; display: block; pointer-events: none; -webkit-user-drag: none; }
 
 /* Statement */
-.statement { padding-block: clamp(110px, 14vw, 190px); text-align: center; }
-.statement .wrap { display: grid; justify-items: center; gap: 36px; }
-.statement img { height: 44px; width: auto; }
-.statement p { font: 300 clamp(30px, 3.6vw, 50px)/1.25 var(--serif); max-width: 22em; text-wrap: balance; }
-.statement p em { color: var(--garnet); }
 
 /* Reviews: compact carousel, one quote at a time */
 .reviews { background: var(--stone); padding-block: clamp(64px, 8vw, 104px); }
@@ -121,7 +116,6 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .sec-head p { color: var(--muted); max-width: 32em; }
 
 /* Collections: gallery with captions below the image */
-#collections { padding-top: 0; }
 .gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(48px, 6vw, 88px) clamp(20px, 2.6vw, 40px); }
 .piece { text-decoration: none; display: grid; gap: 24px; align-content: start; min-width: 0; }
 .piece:nth-child(1) { grid-column: 1 / span 7; }
@@ -139,7 +133,6 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .caption p { color: var(--muted); font-size: 16px; max-width: 30em; }
 
 /* Process */
-.process { background: var(--stone); }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--hair); }
 .step { padding: 40px 36px 0 0; display: grid; gap: 16px; align-content: start; }
 .step + .step { padding-left: 36px; border-left: 1px solid var(--hair); }
