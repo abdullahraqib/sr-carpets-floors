@@ -137,10 +137,6 @@
 
       <form id="book-form" novalidate>
         <div class="form-top">
-          <div class="form-progress">
-            <span class="step-count" aria-live="polite">Step 1 of 2</span>
-            <span class="progress" aria-hidden="true"><i class="on"></i><i></i></span>
-          </div>
           <a class="form-call" href="tel:+441274057433">
             <span class="form-call-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span>
             <span>Rather talk? <b>Call 01274 057433</b> and we'll book you in</span>
@@ -167,7 +163,6 @@
             </div>
           </div>
           <div class="step-actions">
-            <p class="step-hint">Takes less than a minute.</p>
             <button class="btn btn-garnet" type="button" data-next>Next <span aria-hidden="true">→</span></button>
           </div>
         </div>
@@ -554,8 +549,6 @@ const showStatus = msg => { statusEl.textContent = msg; statusEl.hidden = false;
 const steps = form.querySelectorAll('.form-step');
 const goTo = n => {
   steps.forEach((s, i) => s.hidden = i !== n);
-  form.querySelectorAll('.progress i').forEach((b, i) => b.classList.toggle('on', i <= n));
-  form.querySelector('.step-count').textContent = 'Step ' + (n + 1) + ' of 2';
   steps[n].querySelector('input').focus();
 };
 const next = form.querySelector('[data-next]');
