@@ -171,29 +171,49 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .book .label { color: var(--on-dark); }
 .book h2 { font-size: clamp(44px, 5vw, 76px); margin: 18px 0 0; }
 .book-intro p { color: rgba(243,238,230,.85); max-width: 38em; }
-form { background: var(--ivory); color: var(--text); padding: clamp(28px, 3.2vw, 44px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-flow: row dense; gap: 22px 32px; align-items: start; }
-.field { display: grid; gap: 6px; min-width: 0; }
-.field-email, .field-half { grid-column: span 2; }
-.field.full { grid-column: 1 / -1; }
-.field-address { grid-column: span 3; }
-label, legend { font: 500 16px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
-input, select, textarea { font: 300 17px/1.4 var(--body); color: var(--text); background: transparent; border: 0; border-bottom: 1px solid var(--hair); padding: 12px 0; border-radius: 0; width: 100%; transition: border-color .3s; }
-input:not([type="checkbox"]), select { height: 48px; }   /* text boxes, dropdown and date picker share one height so underlines line up */
-input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: var(--garnet); }
-textarea { resize: vertical; min-height: 72px; }
-fieldset { border: 0; padding: 0; margin: 0; grid-column: 1 / -1; display: grid; gap: 14px; }
-fieldset legend { padding: 0; margin-bottom: 14px; }   /* legends sit outside the grid gap, so space the chips off it here */
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+/* Free measure form: a soft two-step card */
+form { background: var(--ivory); color: var(--text); padding: clamp(26px, 3.2vw, 44px); display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; border-radius: 20px; box-shadow: 0 40px 80px -40px rgba(0,0,0,.55); }
+.form-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding-bottom: 24px; border-bottom: 1px solid var(--hair); }
+.form-progress { display: grid; gap: 10px; }
+.step-count { font: 500 15px/1 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--garnet); }
+.progress { display: flex; gap: 6px; }
+.progress i { width: 56px; height: 4px; border-radius: 2px; background: var(--stone); transition: background .4s var(--ease); }
+.progress i.on { background: var(--garnet); }
+.form-call { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: #fff; border: 1px solid var(--hair); color: var(--text); text-decoration: none; font: 400 15px/1.35 var(--body); transition: border-color .3s var(--ease); }
+.form-call:hover { border-color: var(--garnet); }
+.form-call b { font-weight: 600; color: var(--garnet); white-space: nowrap; }
+.form-call-icon { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--garnet); color: #fff; display: grid; place-items: center; }
+.form-step { display: grid; gap: 24px; }
+.form-step[hidden] { display: none; }
+.step-head { display: grid; gap: 6px; }
+.step-head h3 { font-size: clamp(30px, 3vw, 40px); line-height: 1.1; margin: 0; }
+.step-head h3 em { color: var(--garnet); }
+.step-head p { margin: 0; color: var(--muted); font-size: 16px; }
+.step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px 22px; }
+.step-grid-two { grid-template-columns: minmax(150px, 1fr) minmax(0, 2.4fr); }
+.field { display: grid; gap: 8px; min-width: 0; }
+label, legend { font: 500 15px/1.3 var(--body); color: var(--text); }
+legend span { color: var(--muted); font-weight: 400; }
+input, select, textarea { font: 400 17px/1.4 var(--body); color: var(--text); background: #fff; border: 1px solid var(--hair); border-radius: 12px; padding: 0 16px; width: 100%; transition: border-color .3s, box-shadow .3s; }
+input:not([type="checkbox"]), select { height: 54px; }
+input::placeholder { color: rgba(18,16,16,.38); }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--garnet); box-shadow: 0 0 0 4px rgba(142,27,34,.12); }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+fieldset legend { padding: 0; margin-bottom: 12px; }   /* legends sit outside the grid gap, so space the chips off it here */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .chips input { position: absolute; opacity: 0; pointer-events: none; width: auto; }
-.chips label { font: 300 15px/1 var(--body); letter-spacing: .02em; text-transform: none; color: var(--text); border: 1px solid var(--hair); padding: 12px 18px; cursor: pointer; transition: all .3s var(--ease); }
-.chips label:hover { border-color: var(--text); }
-.chips input:checked + label { background: var(--ink); color: var(--on-dark); border-color: var(--ink); }
-.chips input:focus-visible + label { outline: 1px solid var(--garnet); outline-offset: 3px; }
-form .btn { grid-column: 3 / -1; padding-block: 1.2em; margin-top: 2px; }
-.form-note { grid-column: 1 / 3; align-self: center; margin-top: 4px; font-size: 14px; color: var(--muted); }
-.form-status { grid-column: 1 / -1; margin: 0; text-align: center; font-size: 15px; color: var(--garnet); }
+.chips label { font: 400 15px/1 var(--body); color: var(--text); background: #fff; border: 1px solid var(--hair); border-radius: 999px; padding: 12px 20px; cursor: pointer; transition: all .3s var(--ease); }
+.chips label:hover { border-color: var(--garnet); }
+.chips input:checked + label { background: var(--garnet); color: #fff; border-color: var(--garnet); }
+.chips input:focus-visible + label { outline: 2px solid var(--garnet); outline-offset: 3px; }
+.step-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 14px 24px; }
+.step-hint { margin: 0 auto 0 0; color: var(--muted); font-size: 15px; }
+form .btn { border-radius: 999px; padding: 1.15em 2.4em; letter-spacing: .16em; }
+.btn-back { margin-right: auto; background: none; border: 0; padding: 8px 0; font: 500 16px/1 var(--body); color: var(--muted); cursor: pointer; }
+.btn-back:hover { color: var(--text); }
+.form-status { margin: 0; text-align: center; font-size: 15px; color: var(--garnet); }
 .botcheck { position: absolute; left: -9999px; }   /* spam trap: hidden from people, bots tick it */
-.thanks { grid-column: 1 / -1; text-align: center; padding: 48px 0; display: grid; gap: 14px; }
+.thanks { text-align: center; padding: 48px 0; display: grid; gap: 14px; }
 .thanks h3 { font-size: 46px; }
 .thanks h3 em { color: var(--garnet); }
 
@@ -235,11 +255,6 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .hero-copy { gap: 18px; }
   .hero-lede { font-size: 16px; }
   .sec-head, .craft-grid, .book-grid, .book-intro { grid-template-columns: 1fr; }
-  form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .field.full, .field-email, .field-address, form .btn, .form-note { grid-column: 1 / -1; }
-  .field-half { grid-column: span 1; }
-  form { grid-auto-flow: row; }
-  .form-note { text-align: center; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .piece:nth-child(1) { grid-column: 1 / -1; }
   .piece:nth-child(2) { grid-column: auto; margin-top: 0; }
@@ -393,12 +408,15 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .book-list { margin-top: 24px; }
   .book-list li { padding-block: 12px; }
   form { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 24px; }
-  label, legend { font-size: 14px; line-height: 1.3; letter-spacing: 0; }
+  .step-grid, .step-grid-two { grid-template-columns: minmax(0, 1fr); }
+  .form-call { width: 100%; }
+  .step-actions { flex-direction: column-reverse; align-items: stretch; }
+  .step-hint, .btn-back { margin: 0; text-align: center; }
   input, select, textarea { min-height: 48px; font-size: 16px; }
   input[type="date"] { min-width: 0; appearance: none; }
   .chips { gap: 8px; }
   .chips label { min-height: 44px; display: inline-flex; align-items: center; padding: 12px 14px; letter-spacing: 0; }
-  form .btn { padding: 16px 12px; margin-top: 0; }
+  form .btn { padding: 18px 12px; }
   .statement { padding-block: 56px; }
   .statement .wrap { gap: 24px; }
   .statement p { font-size: 30px; line-height: 1.2; }
