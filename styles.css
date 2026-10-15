@@ -48,6 +48,8 @@ header { position: absolute; inset: 0 0 auto; z-index: 5; color: var(--on-dark);
 header .nav-bar { background: rgba(0,0,0,.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }   /* black tint over the hero photo */
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 28px;   /* same overall bar height as before: bigger logo, less padding */ border-bottom: 1px solid var(--hair-dark); }
 .logo img { height: 56px; width: auto; }
+.nav .logo { flex: none; }   /* never squeeze the logo to make room for the menu */
+.nav .logo img { max-width: none; }
 .nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font: 500 16px/1 var(--label); letter-spacing: .16em; white-space: nowrap;   /* five links: sized to fit the 1128px content width */ text-transform: uppercase; }
 .nav ul a { text-decoration: none; opacity: .75; transition: opacity .3s; }
 .nav ul a:hover { opacity: 1; }
@@ -221,6 +223,10 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .nav ul { gap: 20px; font-size: 15px; letter-spacing: .15em; }
   .nav .btn { font-size: 15px; letter-spacing: .1em; padding: 1.1em 1.2em; }
   .logo img { height: 48px; }
+}
+@media (max-width: 1200px) {   /* small laptops: six menu links + full-size logo still fit on one line */
+  .nav ul { gap: 16px; font-size: 14px; letter-spacing: .08em; }
+  .nav .btn { font-size: 14px; letter-spacing: .06em; padding: 1.1em 1em; }
 }
 @media (max-width: 1000px) {
   .nav ul { display: none; }
