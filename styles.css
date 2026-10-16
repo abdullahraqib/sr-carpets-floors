@@ -71,10 +71,10 @@ header .nav-bar { background: rgba(0,0,0,.55); backdrop-filter: blur(6px); -webk
 .topbar { background: var(--garnet-deep); color: #fff; text-align: center; padding: 7px 16px; font: 500 18px/1.2 var(--label); letter-spacing: .22em; text-transform: uppercase; }
 .topbar a { text-decoration: none; display: inline-flex; align-items: center; }   /* icon, stars and text share one centre line */
 .topbar a:hover { text-decoration: underline; text-underline-offset: 4px; }
-.topbar-stars { color: var(--star); text-shadow: 0 0 8px rgba(255,196,0,.55); font-size: 1.15em; letter-spacing: .12em; margin-right: 10px; }
+.topbar-stars { color: var(--star); text-shadow: 0 0 8px rgba(255,196,0,.55); font-size: 21px; letter-spacing: .12em; margin-right: 10px; }
 .topbar-sep { opacity: .45; margin: 0 18px; }
 .topbar-icon { display: inline-grid; place-items: center; width: 26px; height: 26px; margin-right: 10px; }
-.topbar a.topbar-google { display: inline; font-size: 1.25em; letter-spacing: .16em; }   /* plain text flow so the wordmark can sit on the baseline */
+.topbar a.topbar-google { display: inline; }   /* plain text flow so the wordmark can sit on the baseline */
 .topbar-wordmark { display: inline-block; height: 1.4em; width: auto; vertical-align: -0.306em; margin-inline: .12em; }   /* "oogle" spans 50% of the image = the 0.7em cap height of the text; bottoms on the baseline */
 .topbar-icon svg { width: 100%; height: 100%; display: block; }
 
@@ -384,7 +384,6 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .topbar-fb { display: none; }
   .topbar-stars { font-size: 15px; letter-spacing: 0; margin-right: 6px; }
   .topbar-wordmark { height: 1.3em; }
-  .topbar a.topbar-google { font-size: 1.1em; letter-spacing: 0; }
   section { padding-block: 56px; }
   .hero > img { object-position: 62% center; }
   .hero-inner { padding-block: 16px 24px; gap: 28px; }
