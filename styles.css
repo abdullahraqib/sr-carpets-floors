@@ -405,6 +405,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .sec-head h2 { margin-top: 16px; }
   .book-grid { gap: 28px; }
   .book-intro { gap: 16px; }
+  .book-intro-copy p + p { display: none; }   /* phones: one paragraph so the form is closer */
   .book h2 { margin: 16px 0 18px; }
   .book-list { margin-top: 24px; }
   .book-list li { padding-block: 12px; }
