@@ -568,14 +568,17 @@ form.addEventListener('submit', async e => {
   const button = form.querySelector('button[type="submit"]');
   button.disabled = true; button.textContent = 'Sending…'; statusEl.hidden = true;
   try {
-    if (!WEB3FORMS_KEY) throw new Error('Form not connected yet');
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    const result = await res.json();
-    if (!res.ok || !result.success) throw new Error(result.message || 'Send failed');
+    // Preview mode: with no key yet, nothing is sent and the thank-you shows anyway.
+    // Once the key is added, failures show the error message again.
+    if (WEB3FORMS_KEY) {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const result = await res.json();
+      if (!res.ok || !result.success) throw new Error(result.message || 'Send failed');
+    }
     const first = value('name').split(' ')[0].replace(/[<>&"]/g, '');
     form.innerHTML = '<div class="thanks"><h3>Thank you, <em>' + first + '</em></h3><p>We\'ll call you shortly to arrange your free measure. Need us sooner? Call us on <a href="tel:+441274057433">01274 057433</a></p></div>';
   } catch (err) {
