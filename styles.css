@@ -147,7 +147,7 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .craft-img img { width: 100%; height: 100%; object-fit: cover; }
 .craft-copy { display: grid; gap: 30px; }
 .craft .label { color: var(--on-dark-muted); }
-.craft-copy h2 { font-size: clamp(42px, 4.8vw, 68px); }
+.craft-copy h2, .visit-copy h2 { font-size: clamp(42px, 4.8vw, 68px); }
 .craft-copy > p { color: var(--on-dark-muted); max-width: 32em; }
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 48px; padding-top: 16px; }
 .fact { border-top: 1px solid var(--hair-dark); padding-top: 22px; display: grid; gap: 8px; }
@@ -297,6 +297,18 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 .faq summary::after { content: "+"; flex: none; color: var(--garnet); font: 300 28px/1 var(--body); }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { max-width: 42em; padding-bottom: 22px; color: var(--muted); }
+/* Visit us: address, hours and map */
+.visit { background: var(--stone); }
+.visit-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
+.visit-copy { display: grid; gap: 22px; justify-items: start; }
+.visit-copy h2 { margin: 0; }
+.visit-copy p { color: var(--muted); max-width: 34em; margin: 0; }
+.visit-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 22px 32px; margin: 8px 0; width: 100%; }
+.visit-info dt { font: 500 15px/1.2 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--garnet); margin-bottom: 8px; }
+.visit-info dd { margin: 0; line-height: 1.6; }
+.visit-info a { color: inherit; }
+.visit-map { aspect-ratio: 4 / 3; background: var(--ivory); }
+.visit-map iframe { display: block; width: 100%; height: 100%; border: 0; }
 .page-cta .wrap { display: grid; gap: 22px; justify-items: start; }
 .page-cta h2 { font-size: clamp(44px, 5vw, 72px); }
 .page-cta p { max-width: 38em; color: rgba(243,238,230,.85); }
@@ -323,6 +335,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 /* Phone and tablet layouts: independent composition, desktop unchanged. */
 .mobile-menu { display: none; }
 @media (max-width: 1000px) {
+  .visit-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .page-grid { grid-template-columns: minmax(0, 1fr); }
   .spec-card { position: static; }
   .more-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -387,7 +400,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .label { font-size: 15px; line-height: 1.35; letter-spacing: 0; gap: 10px; }
   .label::before { flex-shrink: 0; }
   .sec-head { gap: 20px; margin-bottom: 32px; }
-  .sec-head h2, .craft-copy h2, .book h2 { font-size: 38px; line-height: 1.08; }
+  .sec-head h2, .craft-copy h2, .visit-copy h2, .book h2 { font-size: 38px; line-height: 1.08; }
   .sec-head h2 { margin-top: 16px; }
   .book-grid { gap: 28px; }
   .book-intro { gap: 16px; }
@@ -458,7 +471,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .nav .btn { padding-inline: 10px; font-size: 13px; }
   .hero h1 { font-size: 36px; }
   .hero-inner { padding-top: 14px; }
-  .sec-head h2, .craft-copy h2, .book h2 { font-size: 34px; }
+  .sec-head h2, .craft-copy h2, .visit-copy h2, .book h2 { font-size: 34px; }
   form { padding: 20px; }
   .fact b { font-size: 30px; }
 }
