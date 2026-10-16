@@ -298,7 +298,8 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 .faq details[open] summary::after { content: "–"; }
 .faq details p { max-width: 42em; padding-bottom: 22px; color: var(--muted); }
 /* Visit us: address, hours and map */
-.visit { background: var(--stone); }
+.visit { background: var(--ivory); }
+.process { background: var(--stone); }
 .visit-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
 .visit-copy { display: grid; gap: 22px; justify-items: start; }
 .visit-copy h2 { margin: 0; }
@@ -307,7 +308,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 .visit-info dt { font: 500 15px/1.2 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--garnet); margin-bottom: 8px; }
 .visit-info dd { margin: 0; line-height: 1.6; }
 .visit-info a { color: inherit; }
-.visit-map { aspect-ratio: 4 / 3; background: var(--ivory); }
+.visit-map { aspect-ratio: 4 / 3; background: var(--stone); }
 .visit-map iframe { display: block; width: 100%; height: 100%; border: 0; }
 .page-cta .wrap { display: grid; gap: 22px; justify-items: start; }
 .page-cta h2 { font-size: clamp(44px, 5vw, 72px); }
