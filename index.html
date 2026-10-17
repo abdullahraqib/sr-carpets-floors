@@ -532,10 +532,9 @@ document.addEventListener('keydown', event => {
   show(0); restart();
 })();
 
-// Free measure form -> email via Web3Forms (https://web3forms.com). Not connected to any inbox yet.
-// The receiving address is tied to the access key: enter the address that should get bookings
-// at web3forms.com, then paste the key below.
-const WEB3FORMS_KEY = '';
+// Free measure form -> email to info@srcarpetsandfloors.co.uk via Web3Forms (https://web3forms.com).
+// The key is public by design: it only ever delivers to the inbox it was created for.
+const WEB3FORMS_KEY = 'fb832aa8-ad28-48e4-8820-e5c221e44633';
 const form = document.getElementById('book-form');
 const statusEl = form.querySelector('.form-status');
 const field = name => form.elements.namedItem(name);
@@ -586,17 +585,13 @@ form.addEventListener('submit', async e => {
   const button = form.querySelector('button[type="submit"]');
   button.disabled = true; button.textContent = 'Sending…'; statusEl.hidden = true;
   try {
-    // Preview mode: with no key yet, nothing is sent and the thank-you shows anyway.
-    // Once the key is added, failures show the error message again.
-    if (WEB3FORMS_KEY) {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const result = await res.json();
-      if (!res.ok || !result.success) throw new Error(result.message || 'Send failed');
-    }
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await res.json();
+    if (!res.ok || !result.success) throw new Error(result.message || 'Send failed');
     const first = value('name').split(' ')[0].replace(/[<>&"]/g, '');
     form.innerHTML = '<div class="thanks"><h3>Thank you, <em>' + first + '</em></h3><p>We\'ll call you shortly to arrange your free measure. Need us sooner? Call us on <a href="tel:+441274057433">01274 057433</a></p></div>';
   } catch (err) {
