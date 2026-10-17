@@ -546,8 +546,16 @@ const goTo = n => {
   steps.forEach((s, i) => s.hidden = i !== n);
   steps[n].querySelector('input').focus();
 };
+// UK phone numbers in any common format: 07123 456789, 01274-057433, (020) 7946 0958,
+// +44 7123 456789, +44 (0)1274 057433, 0044 1274 057433. Normalised to 0 + 9 or 10 digits.
+const isUkPhone = v => /^0[1-9]\d{8,9}$/.test(v.replace(/[\s().-]/g, '').replace(/^(?:\+|00)440?/, '0'));
+const phoneInput = field('phone');
+const checkPhone = () => phoneInput.setCustomValidity(
+  !phoneInput.value.trim() || isUkPhone(phoneInput.value) ? '' : 'Please enter a UK phone number, e.g. 07123 456789 or 01274 057433.');
+phoneInput.addEventListener('input', checkPhone);
 const next = form.querySelector('[data-next]');
 next.addEventListener('click', () => {
+  checkPhone();
   const bad = [...steps[0].querySelectorAll('input')].find(i => !i.checkValidity());
   if (bad) { bad.reportValidity(); return; }
   goTo(1);
