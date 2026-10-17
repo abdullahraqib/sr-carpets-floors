@@ -22,8 +22,8 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500&family=Barlow:wght@300;400&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500&family=Barlow:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500;700&family=Barlow:wght@300;400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500;700&family=Barlow:wght@300;400&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <!-- Vercel Speed Insights: real-visitor Core Web Vitals (enable it in the Vercel dashboard) -->
 <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
@@ -129,12 +129,10 @@
     <div class="wrap book-grid">
       <div class="book-intro">
         <div class="book-intro-head">
-          <span class="label">Free measuring service</span>
           <h2>A free measure, <em>no obligation</em></h2>
         </div>
         <div class="book-intro-copy">
-          <p>It starts with a free, no-obligation measure. We'll visit your home, measure every room and check the subfloor, so you know exactly what each room needs before you choose.</p>
-          <p>Then come into our Bradford showroom to choose from hundreds of floors, and we'll give you a clear written quotation. We measure homes right across Yorkshire, from Bradford and Leeds to Halifax, Huddersfield and beyond.</p>
+          <p>It starts with a free, no-obligation measure at your home. We measure every room and check the subfloor, then you choose your floor in our Bradford showroom and get a clear written quote. We cover the whole of Yorkshire and beyond.</p>
         </div>
       </div>
 
@@ -173,14 +171,18 @@
               <p>Add your address so we know where to visit. Then we'll call you to book a time.</p>
             </div>
           </div>
-          <div class="step-grid step-grid-two">
+          <div class="step-grid step-grid-address">
             <div class="field">
               <label for="postcode">Postcode</label>
               <input id="postcode" name="postcode" autocomplete="postal-code" required>
             </div>
             <div class="field">
-              <label for="address">Address</label>
-              <input id="address" name="address" autocomplete="street-address" placeholder="House number and street" required>
+              <label for="door">House number or name</label>
+              <input id="door" name="door" required>
+            </div>
+            <div class="field">
+              <label for="street">Street name</label>
+              <input id="street" name="street" required>
             </div>
           </div>
           <fieldset>
@@ -567,7 +569,8 @@ form.addEventListener('submit', async e => {
     'Full name': value('name'),
     'Telephone': value('phone'),
     'Email': value('email'),
-    'Address': value('address'),
+    'House number or name': value('door'),
+    'Street': value('street'),
     'Postcode': value('postcode').toUpperCase(),
     'Interested in': materials.length ? materials.join(', ') : 'Not specified',
   };

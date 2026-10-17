@@ -37,7 +37,7 @@ p { margin: 0; }
 .label::before { content: ""; width: 1px; height: 18px; background: currentColor; }
 
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 1.25em 2.2em; font: 500 17px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease); }
-.btn-garnet { background: var(--garnet); color: var(--on-dark); }
+.btn-garnet { background: var(--garnet); color: #fff; font-weight: 700; }   /* bold so the label stands out without growing the box */
 .btn-garnet:hover { background: var(--garnet-deep); }
 .btn-ghost { border-color: var(--hair-dark); color: var(--on-dark); }
 .btn-ghost:hover { border-color: var(--on-dark); }
@@ -162,7 +162,7 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .book-intro .book-call { color: var(--on-dark); }
 .book-intro .book-call a { color: inherit; }
 .book .label { color: var(--on-dark); }
-.book h2 { font-size: clamp(44px, 5vw, 76px); margin: 18px 0 0; }
+.book h2 { font-size: clamp(44px, 5vw, 76px); margin: 0; }
 .book-intro p { color: rgba(243,238,230,.85); max-width: 38em; }
 /* Free measure form: a soft two-step card */
 form { background: var(--ivory); color: var(--text); padding: clamp(26px, 3.2vw, 44px); display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
@@ -178,7 +178,7 @@ form { background: var(--ivory); color: var(--text); padding: clamp(26px, 3.2vw,
 .step-head h3 em { color: var(--garnet); }
 .step-head p { margin: 0; color: var(--muted); font-size: 16px; }
 .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px 22px; }
-.step-grid-two { grid-template-columns: minmax(150px, 1fr) minmax(0, 2.4fr); }
+.step-grid-address { grid-template-columns: minmax(130px, 1fr) minmax(130px, 1fr) minmax(0, 2.2fr); }   /* postcode | house number | street */
 .field { display: grid; gap: 8px; min-width: 0; }
 label, legend { font: 500 15px/1.3 var(--body); color: var(--text); }
 legend span { color: var(--muted); font-weight: 400; }
@@ -406,12 +406,11 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .sec-head h2 { margin-top: 16px; }
   .book-grid { gap: 28px; }
   .book-intro { gap: 16px; }
-  .book-intro-copy p + p { display: none; }   /* phones: one paragraph so the form is closer */
-  .book h2 { margin: 16px 0 18px; }
+  .book h2 { margin: 0 0 4px; }   /* no label above it any more */
   .book-list { margin-top: 24px; }
   .book-list li { padding-block: 12px; }
   form { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 24px; }
-  .step-grid, .step-grid-two { grid-template-columns: minmax(0, 1fr); }
+  .step-grid, .step-grid-address { grid-template-columns: minmax(0, 1fr); }
   .step-actions { flex-direction: column-reverse; align-items: stretch; }
   .btn-back { margin: 0; text-align: center; }
   .step-actions .form-call { margin: 4px 0 0; justify-content: center; text-align: center; }
