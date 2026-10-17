@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/:path*", "has": [{ "type": "host", "value": "www.srcarpetsandfloors.co.uk" } ], "destination": "https://srcarpetsandfloors.co.uk/:path*", "permanent": true},
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.srcarpetsandfloors.co.uk" }], "destination": "https://srcarpetsandfloors.co.uk/$1", "permanent": true },
     { "source": "/about-us", "destination": "/", "permanent": true},
     { "source": "/competition-1", "destination": "/", "permanent": true},
     { "source": "/privacy-policy", "destination": "/", "permanent": false}
