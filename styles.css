@@ -9,7 +9,7 @@
   --ivory: #f5f1ea;
   --stone: #e9e2d7;
   --text: #221e1c;
-  --muted: #6f665e;
+  --muted: #665d55;
   --hair: rgba(34,30,28,.14);
   --on-dark: #f3eee6;
   --on-dark-muted: #a8a097;
@@ -208,7 +208,7 @@ form .btn { padding: 1.15em 2.4em; }
 footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96px 40px; font-size: 15px; }
 .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; }
 .foot-grid .logo img { height: 60px; }
-.foot-grid h4 { font: 500 16px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark); margin: 0 0 22px; }
+.foot-grid h3 { font: 500 16px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark); margin: 0 0 22px; }
 .foot-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .foot-grid a { text-decoration: none; transition: color .3s; overflow-wrap: anywhere; }
 .foot-grid a:hover { color: var(--on-dark); }
@@ -460,7 +460,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   footer { padding-block: 48px 28px; }
   .foot-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .foot-grid .logo img { height: auto; width: 190px; }
-  .foot-grid h4 { margin-bottom: 14px; letter-spacing: 0; }
+  .foot-grid h3 { margin-bottom: 14px; letter-spacing: 0; }
   .foot-grid > div:last-child ul { grid-template-columns: 1fr 1fr; gap: 0 16px; }
   .foot-grid ul a { display: inline-flex; align-items: center; min-height: 44px; }
   .hours { max-width: 340px; }
