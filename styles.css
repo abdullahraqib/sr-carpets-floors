@@ -36,8 +36,10 @@ p { margin: 0; }
 .label { display: inline-flex; align-items: center; gap: 14px; font: 500 17px/1 var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--garnet); }
 .label::before { content: ""; width: 1px; height: 18px; background: currentColor; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 1.25em 2.2em; font: 500 17px/1 var(--label); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease); }
-.btn-garnet { background: var(--garnet); color: #fff; font-weight: 700; }   /* bold so the label stands out without growing the box */
+.btn { --fs: 17px; --pb: 21.25px; --pi: 37.4px; --ls: 5.1px; --k: 1;   /* size, padding and tracking; --k scales the label inside the same box */
+  display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+  font: 500 calc(var(--fs) * var(--k))/1 var(--label); padding: calc(var(--pb) - var(--fs) * (var(--k) - 1) / 2) calc(var(--pi) - var(--fs) * (var(--k) - 1) * var(--pc, 0)); letter-spacing: max(0px, calc(var(--ls) - (var(--k) - 1) * 6px)); text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease); }
+.btn-garnet { --k: 1.15; background: var(--garnet); color: #fff; }   /* larger label, same box */
 .btn-garnet:hover { background: var(--garnet-deep); }
 .btn-ghost { border-color: var(--hair-dark); color: var(--on-dark); }
 .btn-ghost:hover { border-color: var(--on-dark); }
@@ -53,7 +55,7 @@ header .nav-bar { background: rgba(0,0,0,.55); backdrop-filter: blur(6px); -webk
 .nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font: 500 16px/1 var(--label); letter-spacing: .16em; white-space: nowrap;   /* five links: sized to fit the 1128px content width */ text-transform: uppercase; }
 .nav ul a { text-decoration: none; opacity: .75; transition: opacity .3s; }
 .nav ul a:hover { opacity: 1; }
-.nav .btn { padding: 1.1em 1.3em; letter-spacing: .12em; font-size: 16px; white-space: nowrap; }
+.nav .btn { --fs: 16px; --pb: 17.6px; --pi: 20.8px; --ls: 1.92px; white-space: nowrap; }
 .btn-short { display: none; }   /* phones show the short label */
 
 /* Hero */
@@ -195,7 +197,7 @@ fieldset legend { padding: 0; margin-bottom: 12px; }   /* legends sit outside th
 .chips input:checked + label { background: var(--garnet); color: #fff; border-color: var(--garnet); }
 .chips input:focus-visible + label { outline: 2px solid var(--garnet); outline-offset: 3px; }
 .step-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 14px 24px; }
-form .btn { padding: 1.15em 2.4em; }
+form .btn { --pb: 19.55px; --pi: 40.8px; }
 .btn-back { margin-right: auto; background: none; border: 0; padding: 8px 0; font: 500 16px/1 var(--body); color: var(--muted); cursor: pointer; }
 .form-call + .btn-back { margin-right: 0; }   /* the call line takes the left side; Back sits beside the submit button */
 .btn-back:hover { color: var(--text); }
@@ -229,12 +231,12 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 }
 @media (max-width: 1300px) {   /* laptops: keep the menu links, just tighter */
   .nav ul { gap: 20px; font-size: 15px; letter-spacing: .15em; }
-  .nav .btn { font-size: 15px; letter-spacing: .1em; padding: 1.1em 1.2em; }
+  .nav .btn { --fs: 15px; --ls: 1.5px; --pb: 16.5px; --pi: 18px; }
   .logo img { height: 48px; }
 }
 @media (max-width: 1200px) {   /* small laptops: six menu links + full-size logo still fit on one line */
   .nav ul { gap: 16px; font-size: 14px; letter-spacing: .08em; }
-  .nav .btn { font-size: 14px; letter-spacing: .06em; padding: 1.1em 1em; }
+  .nav .btn { --fs: 14px; --ls: .84px; --pb: 15.4px; --pi: 14px; }
 }
 @media (max-width: 1000px) {
   .nav ul { display: none; }
@@ -253,7 +255,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 }
 @media (max-width: 600px) {
   .logo img { height: 34px; }
-  .nav .btn { padding: .9em 1em; letter-spacing: .14em; }
+  .nav .btn { --pb: 12.6px; --pi: 14px; --ls: 1.96px; }
   .gallery, .steps, form, .facts, .foot-grid { grid-template-columns: 1fr; }
   .arrow { width: 38px; height: 38px; font-size: 16px; }
   .carousel { gap: 10px; }
@@ -380,7 +382,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   header .nav-bar { background: var(--ink); }
   .nav { position: relative; padding-block: 14px; gap: 10px; }
   .nav .logo img { height: auto; width: 152px; }
-  .nav .btn { font-size: 14px; letter-spacing: 0; padding: 14px 12px; min-height: 44px; }
+  .nav .btn { --fs: 14px; --ls: 0px; --pb: 14px; --pi: 12px; min-height: 44px; }
   .topbar { font-size: 14px; letter-spacing: 0; padding: 8px 12px; }
   .topbar-fb { display: none; }
   .topbar-stars { font-size: 15px; letter-spacing: 0; margin-right: 6px; }
@@ -392,7 +394,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .hero h1 { font-size: 42px; line-height: 1.06; max-width: 12em; }
   .hero-lede { font-size: 16px; line-height: 1.55; color: var(--on-dark); max-width: 32em; }
   .hero-ctas { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .btn { min-height: 48px; font-size: 16px; letter-spacing: 0; padding: 16px 20px; }
+  .btn { min-height: 48px; --fs: 16px; --ls: 0px; --pb: 16px; --pi: 20px; --pc: 3; }   /* no tracking to trim on phones, so larger labels take it from the side padding */
   .hero-ctas .btn-ghost { min-height: 44px; padding-block: 12px; }
   .brands { grid-row: 1; width: auto; margin-inline: calc(-1 * var(--gutter)); gap: 12px; padding-bottom: 22px; border-bottom: 1px solid var(--hair-dark); }   /* at the top, as on desktop */
   .brands-label { font-size: 13px; letter-spacing: 0; }
@@ -418,7 +420,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   input[type="date"] { min-width: 0; appearance: none; }
   .chips { gap: 8px; }
   .chips label { min-height: 44px; display: inline-flex; align-items: center; padding: 12px 14px; letter-spacing: 0; }
-  form .btn { padding: 18px 12px; }
+  form .btn { --pb: 18px; --pi: 12px; }
   .statement { padding-block: 56px; }
   .statement .wrap { gap: 24px; }
   .statement p { font-size: 30px; line-height: 1.2; }
@@ -471,7 +473,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   :root { --gutter: 20px; }
   .nav { gap: 8px; }
   .nav .logo img { width: 112px; }
-  .nav .btn { padding-inline: 10px; font-size: 13px; }
+  .nav .btn { --pi: 10px; --fs: 13px; }
   .hero h1 { font-size: 36px; }
   .hero-inner { padding-top: 14px; }
   .sec-head h2, .craft-copy h2, .visit-copy h2, .book h2 { font-size: 34px; }
