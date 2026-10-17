@@ -166,7 +166,7 @@ section { padding-block: clamp(90px, 12vw, 160px); }
 .book-intro p { color: rgba(243,238,230,.85); max-width: 38em; }
 /* Free measure form: a soft two-step card */
 form { background: var(--ivory); color: var(--text); padding: clamp(26px, 3.2vw, 44px); display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
-.form-call { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; color: var(--text); text-decoration: none; font: 400 15px/1.35 var(--body); }
+.form-call { display: inline-flex; align-items: center; gap: 8px; margin: 0 auto 0 0; color: var(--text); text-decoration: none; font: 400 15px/1.35 var(--body); }
 .form-call svg { flex: none; color: var(--garnet); }
 .form-call:hover b { text-decoration: underline; }
 .form-call b { font-weight: 600; color: var(--garnet); white-space: nowrap; }
@@ -197,6 +197,7 @@ fieldset legend { padding: 0; margin-bottom: 12px; }   /* legends sit outside th
 .step-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 14px 24px; }
 form .btn { padding: 1.15em 2.4em; }
 .btn-back { margin-right: auto; background: none; border: 0; padding: 8px 0; font: 500 16px/1 var(--body); color: var(--muted); cursor: pointer; }
+.form-call + .btn-back { margin-right: 0; }   /* the call line takes the left side; Back sits beside the submit button */
 .btn-back:hover { color: var(--text); }
 .form-status { margin: 0; text-align: center; font-size: 15px; color: var(--garnet); }
 .botcheck { position: absolute; left: -9999px; }   /* spam trap: hidden from people, bots tick it */
@@ -413,6 +414,7 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .step-grid, .step-grid-two { grid-template-columns: minmax(0, 1fr); }
   .step-actions { flex-direction: column-reverse; align-items: stretch; }
   .btn-back { margin: 0; text-align: center; }
+  .step-actions .form-call { margin: 4px 0 0; justify-content: center; text-align: center; }
   input, select, textarea { min-height: 48px; font-size: 16px; }
   input[type="date"] { min-width: 0; appearance: none; }
   .chips { gap: 8px; }
