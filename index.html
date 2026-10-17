@@ -22,8 +22,8 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500&family=Barlow:wght@300;400&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500&family=Barlow:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500&family=Barlow:wght@300;400;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@500&family=Barlow:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <!-- Vercel Speed Insights: real-visitor Core Web Vitals (enable it in the Vercel dashboard) -->
 <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
@@ -547,8 +547,9 @@ const goTo = n => {
   steps[n].querySelector('input').focus();
 };
 // UK phone numbers in any common format: 07123 456789, 01274-057433, (020) 7946 0958,
-// +44 7123 456789, +44 (0)1274 057433, 0044 1274 057433. Normalised to 0 + 9 or 10 digits.
-const isUkPhone = v => /^0[1-9]\d{8,9}$/.test(v.replace(/[\s().-]/g, '').replace(/^(?:\+|00)440?/, '0'));
+// +44 7123 456789, +44 (0)1274 057433, 0044 1274 057433, or without the leading 0 (7123 456789).
+// Normalised to an optional 0 + 9 or 10 digits.
+const isUkPhone = v => /^0?[1-9]\d{8,9}$/.test(v.replace(/[\s().-]/g, '').replace(/^(?:\+|00)440?/, '0'));
 const phoneInput = field('phone');
 const checkPhone = () => phoneInput.setCustomValidity(
   !phoneInput.value.trim() || isUkPhone(phoneInput.value) ? '' : 'Please enter a UK phone number, e.g. 07123 456789 or 01274 057433.');

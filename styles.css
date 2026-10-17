@@ -39,7 +39,8 @@ p { margin: 0; }
 .btn { --fs: 17px; --pb: 21.25px; --pi: 37.4px; --ls: 5.1px; --k: 1;   /* size, padding and tracking; --k scales the label inside the same box */
   display: inline-flex; align-items: center; justify-content: center; gap: 14px;
   font: 500 calc(var(--fs) * var(--k))/1 var(--label); padding: calc(var(--pb) - var(--fs) * (var(--k) - 1) / 2) calc(var(--pi) - var(--fs) * (var(--k) - 1) * var(--pc, 0)); letter-spacing: max(0px, calc(var(--ls) - (var(--k) - 1) * 6px)); text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease); }
-.btn-garnet { --k: 1.15; background: var(--garnet); color: #fff; }   /* larger label, same box */
+.btn-garnet { --k: 1.15; background: var(--garnet); color: #fff; font-family: var(--body); font-weight: 700; letter-spacing: calc(var(--ls) * .25); }   /* bold Barlow so the call to action stands out; same box */
+.nav .btn-garnet { --k: 1; letter-spacing: 0; }   /* wider face, so the header button keeps its size at normal scale */
 .btn-garnet:hover { background: var(--garnet-deep); }
 .btn-ghost { border-color: var(--hair-dark); color: var(--on-dark); }
 .btn-ghost:hover { border-color: var(--on-dark); }
@@ -232,11 +233,13 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
 @media (max-width: 1300px) {   /* laptops: keep the menu links, just tighter */
   .nav ul { gap: 20px; font-size: 15px; letter-spacing: .15em; }
   .nav .btn { --fs: 15px; --ls: 1.5px; --pb: 16.5px; --pi: 18px; }
+  .nav .btn-garnet { --k: .94; }
   .logo img { height: 48px; }
 }
 @media (max-width: 1200px) {   /* small laptops: six menu links + full-size logo still fit on one line */
   .nav ul { gap: 16px; font-size: 14px; letter-spacing: .08em; }
   .nav .btn { --fs: 14px; --ls: .84px; --pb: 15.4px; --pi: 14px; }
+  .nav .btn-garnet { --k: .88; }
 }
 @media (max-width: 1000px) {
   .nav ul { display: none; }
@@ -395,6 +398,8 @@ footer { background: var(--ink); color: var(--on-dark-muted); padding-block: 96p
   .hero-lede { font-size: 16px; line-height: 1.55; color: var(--on-dark); max-width: 32em; }
   .hero-ctas { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .btn { min-height: 48px; --fs: 16px; --ls: 0px; --pb: 16px; --pi: 20px; --pc: 3; }   /* no tracking to trim on phones, so larger labels take it from the side padding */
+  .btn-garnet { --k: 1; --pc: 0; }   /* bold Barlow at 16px already outweighs the old 18px condensed label */
+  .nav .btn-garnet { --k: .9; }
   .hero-ctas .btn-ghost { min-height: 44px; padding-block: 12px; }
   .brands { grid-row: 1; width: auto; margin-inline: calc(-1 * var(--gutter)); gap: 12px; padding-bottom: 22px; border-bottom: 1px solid var(--hair-dark); }   /* at the top, as on desktop */
   .brands-label { font-size: 13px; letter-spacing: 0; }
